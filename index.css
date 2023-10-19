@@ -1,0 +1,215 @@
+
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    background-color: #18122b; /* Dark background color */
+    color: #fff; /* Light text color */
+    display: flex;
+    /*flex-wrap: wrap; */
+    /*justify-content: flex-start; /* Align containers to the left */
+}
+
+.container {
+     /*flex: 0 0 calc(33.33% - 20px); /* Adjust width as needed */
+    width: 40%; /* You can adjust this width as needed */
+    margin: 0 auto;
+    /*margin-left: 25%;*/
+    padding: 10px;
+    border: 1px solid #555; /* Darker border color */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #393053; /* Slightly darker background color */
+    
+    
+}
+        
+     
+  /**  .typicalCode {
+    
+    max-width: 400px;
+    margin-left: 150px;
+    margin-right: 50px;
+    margin-top: 10px;
+    padding: 10px;
+    border: 1px solid #555; 
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #444; 
+}*/
+
+        .fa-copy
+        {
+        color: #fff;
+        float:right;
+        font-size:18px
+        }
+        
+        .fa-copy:hover
+        {
+        color: grey;
+        }
+ 
+    
+h1 {
+    text-align: center;
+    color: #fff; /* Light text color */
+}
+        
+input {
+    background-color: #333; /* Dark background color */
+    color: #fff; /* Light text color */
+    border: 1px solid #555; /* Darker border color */
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    width: 50%;
+    
+}
+
+select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #555; /* Darker border color */
+    border-radius: 5px;
+    background-color: #444; /* Slightly darker background color */
+    color: #fff; /* Light text color */
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #393E46;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+        
+input.activators::placeholder {
+color: #ffffffa3;
+        } 
+input.activators:focus:::placeholder {
+color: color: transparent;
+        } 
+        
+        
+input::placeholder {
+    color: transparent;
+    transition: color 0.2s ease; 
+}
+        
+ input:hover::placeholder {
+color: #ffffffa3; /* o el color que desees */
+}       
+        
+ input:focus::placeholder {
+color: #ffffffa3; /* o el color que desees */
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+  .input-group {
+position: relative;
+}
+
+.input-group__input {
+color: #fff;
+padding: 10px;
+border: none;
+border-radius: 4px;
+outline: 2px solid #fff;
+background-color: #615a79a1;
+transition: outline-color 200ms;
+}
+
+.input-group__input:focus {
+outline-color: #3c50eb;
+}
+
+.input-group__label {
+position: absolute;
+top: 20px;
+left: 10px;
+color: #fff;
+font-size: 14px;
+font-weight: normal; 
+transition: transform 200ms, scale 200ms, font-weight 0.2s ease, font-size 0.2s ease;
+
+
+}
+
+.input-group__input:hover + .input-group__label {
+  padding-inline: 5px;
+  transform: translate(-10px, -14px) scale(0.9);
+  top: 6px;
+  background-color: transparent;
+  font-weight: bold;
+  font-size: 16px;  
+}
+
+.input-group__input:focus + .input-group__label,
+.input-group__input:valid + .input-group__label {
+padding-inline: 5px;
+transform: translate(-10px, -14px) scale(0.9);
+top: 6px;
+background-color: transparent; 
+font-weight: bold;
+font-size: 16px;
+
+
+}
+   </style>   
+    <style>
+.code {
+    font-family: "Courier New", monospace;
+    background-color: #202020;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    display: block;
+    font-size: 14px;
+    color: #fff;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+.language-html .keyword {
+    color: #f92672; 
+}
+
+.language-html .string {
+    color: #e6db74; 
+}
+
+.language-html .comment {
+    color: #999; 
+}
+
+.language-html .variable {
+    color: #f92672; 
+}
+
+.language-html .number {
+    color: #ae81ff; 
+}
+        
+.language-html .scriptTag{
+    color: #f92672; 
+}
+        
+.language-html .var-name{
+    color: #fd971f; 
+}  
+
+.language-html .function{
+    color: #a6e22e; 
+} 
+
+.language-html .function-name{
+    color: #fd971f; 
+}         
+        </style>
