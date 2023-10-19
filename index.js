@@ -53,10 +53,7 @@
 window.onload = highlightCode;
                  
 });
-        </script>
-    
-    
-    <script>
+     
         //code Generator
 
     document.addEventListener("DOMContentLoaded", function()
