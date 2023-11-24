@@ -1,111 +1,117 @@
 
-   
+        
         //highLight Code
-        document.addEventListener('DOMContentLoaded', function() {
-          
-        function highlightCode() {
-            
-            document.querySelectorAll('.code').forEach(function(codeElement){
-    
+document.addEventListener('DOMContentLoaded', function() {
+
+    function highlightCode() {
+
+        document.querySelectorAll('.code').forEach(function(codeElement) {
+
             const codeContent = codeElement.innerHTML;
             const codeLines = codeContent.split('\n');
             let highlightedCode = '';
 
-        for (const line of codeLines) {
-        
-    
-        // Verifica si la línea contiene etiquetas HTML
-         if (/<[a-z][\s\S]*>/i.test(line)) 
+            for (const line of codeLines) {
+
+
+                // Verifica si la línea contiene etiquetas HTML
+                /* var htmlTags = line.match(/<[a-z][\s\S]*?>/ig);
+         if (htmlTags) 
         {
-            
+            htmlTags.forEach(function(tag) {
+                
+                console.log("Etiqueta HTML detectada: " + tag);
+         highlightedCode += '<div class="code-line">'  + tag + '</div>';
+             
+           
+    });
           // Si la línea contiene etiquetas HTML, agrégala sin resaltar
-            highlightedCode += '<div class="code-line">' + line + '</div>';
-        } else {
+            //highlightedCode += '<div class="code-line">' + line + '</div>';
+        } else {*/
 
-            // Agrega resaltado de sintaxis para JavaScript (puedes agregar más reglas para otros lenguajes)
-            const highlightedLine = line
-                .replace(/(['"])(.*?)\1/g, '<span class="string">$1$2$1</span>')
-                .replace(/\b(\d+)\b/g, '<span class="number">$1</span>')
-                .replace(/\b(if|else|for|while)\b/g, '<span class="keyword">$1</span>')
-                .replace(/\b(function)\s+(\w+)\s*()/g, '<span class="keyword">$1</span> <span class="function-name">$2</span>')
-                .replace(/\.(.*?)(?=[\s.({\[]|$)/g, '.<span class="function">$1</span>')
-                .replace(/\b(var|let|const)\s+(\w+)\s*=/g, '<span class="variable">$1</span> <span class="var-name">$2</span>=')
-                .replace(/\/\/(.*)/g, '<span class="comment">//$1</span>')
-                .replace(/&lt;script&gt;/g, '<span class="scriptTag">&lt;script&gt;</span>') 
-                .replace(/&lt;\/script&gt;/g, '<span class="scriptTag">&lt;/script&gt;</span>');
-                
-                
-                
+                // Agrega resaltado de sintaxis para JavaScript (puedes agregar más reglas para otros lenguajes)
+                const highlightedLine = line
+                    .replace(/(['])(.*?)\1/g, '<span class="string">$1$2$1</span>')
+                    .replace(/\b\d+(\.\d+)?\b/g, '<span class="number">$&</span>')
+                    .replace(/\b(if|else|for|while)\b/g, '<span class="keyword">$1</span>')
+                    .replace(/\b(function)\s+(\w+)\s*()/g, '<span class="keyword">$1</span> <span class="function-name">$2</span>')
+                    .replace(/([^'"])\.(.*?)(?=[\s.({\[]|$)/g, '$1.<span class="function">$2</span>')
+                    .replace(/\b(var|let|const)\s+(\w+)\s*=/g, '<span class="variable">$1</span> <span class="var-name">$2</span> =')
+                    .replace(/\/\/(.*)/g, '<span class="comment">//$1</span>')
+                    .replace(/&lt;(script|noscript|iframe)&gt;/g, '<span class="htmlTag">&lt;$1&gt;</span>')
+                    .replace(/&lt;\/(script|noscript|iframe)&gt;/g, '<span class="htmlTag">&lt;/$1&gt;</span>');
 
-                
-                
-            // Agrega la línea resaltada al código final
-            highlightedCode += '<div class="code-line">' + highlightedLine + '</div>';
-        }
+
+
+
+                // Agrega la línea resaltada al código final
+                highlightedCode += '<div class="code-line">' + highlightedLine + '</div>';
+                //}
+            }
+
+            // Actualiza el elemento de código con el código resaltado
+            codeElement.innerHTML = highlightedCode;
+        })
     }
 
-    // Actualiza el elemento de código con el código resaltado
-    codeElement.innerHTML = highlightedCode;
-      })
-}
+    // Llama a la función de resaltado cuando se carga la página
+    window.onload = highlightCode;
 
-// Llama a la función de resaltado cuando se carga la página
-window.onload = highlightCode;
-                 
 });
-     
+  
         //code Generator
 
-    document.addEventListener("DOMContentLoaded", function()
-    {
-          setTimeout(function() { 
+document.addEventListener("DOMContentLoaded", function() {
+    setTimeout(function() {
+        
+     //capa de datos   
+    window.dataLayer = window.dataLayer || [];
+        // setTimeout(function() { 
+        //check localStorage
+        /** if(localStorage.getItem('firstLoad')!==null){
              
-             // setTimeout(function() { 
-            //check localStorage
-             /** if(localStorage.getItem('firstLoad')!==null){
-                  
-                    localStorage.removeItem('firstLoad'); 
-                    console.log('already precharged');
-                 }
-                 else{
-                     
-                    var firstLoad;
-                     
-                    localStorage.setItem('firstLoad', firstLoad);
-                    console.log('recharge'); 
-                    location.href = location.href;
-                }*/
-              //}, 100);
-               
+               localStorage.removeItem('firstLoad'); 
+               console.log('already precharged');
+            }
+            else{
+                
+               var firstLoad;
+                
+               localStorage.setItem('firstLoad', firstLoad);
+               console.log('recharge'); 
+               location.href = location.href;
+           }*/
+        //}, 100);
+
         var activatorTypeSelect = document.getElementById('activatorType');
         //limpiar input cuando se haga click      
-              
-          activatorTypeSelect.addEventListener('click',function (){
-               
-                activatorTypeSelect.value = null;
-               
-               });
-        
-              
+
+        activatorTypeSelect.addEventListener('click', function() {
+
+            activatorTypeSelect.value = null;
+
+        });
+
+
         var inputEventName = document.getElementById('dataLayer-event-name');
         var generatedEventName = document.querySelectorAll('#generatedEventName');
         var searchInput = document.getElementById("searchInput");
-               
+
         //link click
-        var linkClickUrl = document.querySelector("#link-click-textValue");     
+        var linkClickUrl = document.querySelector("#link-click-textValue");
         var generatedlinkClickUrl = document.querySelectorAll('#generatedlinkClickUrl');
         var linkClickTextBox = document.getElementById('link-click-text-box');
         var linkClickCode = document.getElementById('link-click-code');
         //click id
         var clickIdSelector = document.getElementById('id-click-textValue');;
         var generatedIdClick = document.querySelectorAll('#generatedIdClick');
-        var idClickTextBox = document.getElementById('id-click-text-box'); 
+        var idClickTextBox = document.getElementById('id-click-text-box');
         var idClickCode = document.getElementById('id-click-code');
         //click class
         var clickClassSelector = document.querySelector("#class-click-textValue");
         var generatedClassClick = document.querySelectorAll('#generatedClassClick');
         var classClickTextBox = document.getElementById('class-click-text-box')
-        var classClickCode = document.getElementById('class-click-code');   
+        var classClickCode = document.getElementById('class-click-code');
         //click attribute
         var clickAttributeSelector = document.getElementById('attribute-click-textValue');
         var generatedAttributeClick = document.querySelectorAll('#generatedAttributeClick');
@@ -120,7 +126,7 @@ window.onload = highlightCode;
         var clickForEachSelector = document.getElementById('forEach-click-textValue');
         var generatedForEachClick = document.querySelectorAll('#generatedForEachClick');
         var forEachClickTextBox = document.getElementById('forEach-click-text-box')
-        var forEachClickCode = document.getElementById('forEach-click-code');        
+        var forEachClickCode = document.getElementById('forEach-click-code');
         // formThnkMsg
         var formThnkMsgSelector = document.querySelector("#formThnkMsg-textValue");
         var generatedformThnkMsg = document.querySelectorAll('#generatedformThnkMsg');
@@ -140,7 +146,7 @@ window.onload = highlightCode;
         var formClickSelectorEnhancedSelector = document.getElementById('formClickSelectorEnhanced-textValue');
         var generatedformClickSelectorEnhanced = document.querySelectorAll('#generatedformClickSelectorEnhanced');
         var formClickSelectorEnhancedTextBox = document.getElementById('formClickSelectorEnhanced-text-box')
-        var formClickSelectorEnhancedCode = document.getElementById('formClickSelectortEnhanced-code'); 
+        var formClickSelectorEnhancedCode = document.getElementById('formClickSelectortEnhanced-code');
         // ShadowRootClick
         var ShadowRootSelector = document.querySelector("#ShadowRootSelector-textValue");
         var ShadowRootButtonSelector = document.querySelector("#ShadowRootButtonSelector-textValue");
@@ -148,29 +154,29 @@ window.onload = highlightCode;
         var generatedShadowRootButtonSelector = document.querySelectorAll('#generatedShadowRootButtonSelector');
         var ShadowRootSelectorTextBox = document.getElementById('ShadowRootSelector-text-box')
         var ShadowRootButtonTextBox = document.getElementById('ShadowRootButton-text-box')
-        var shadowRootClickcode = document.getElementById('shadowRootClick-code'); 
+        var shadowRootClickcode = document.getElementById('shadowRootClick-code');
         // iframeClick
         var iframeClickSelector = document.getElementById('iframeClickSelector-textValue');
-        var iframeClickButtonSelector = document.getElementById(' iframeClickButtonSelector-textValue');
+        var iframeClickButtonSelector = document.getElementById('iframeClickButtonSelector-textValue');
         var generatediframeClickSelector = document.querySelectorAll('#generatediframeClickSelector');
         var generatediframeClickButtonSelector = document.querySelectorAll('#generatediframeClickButtonSelector');
         var iframeClickSelectorTextBox = document.getElementById('iframeClickSelector-text-box')
         var iframeClickButtonTextBox = document.getElementById('iframeClickButton-text-box')
-        var iframeClickcode = document.getElementById('iframeClick-code'); 
-         // iframeThanksMessage
+        var iframeClickcode = document.getElementById('iframeClick-code');
+        // iframeThanksMessage
         var iframeFormSelector = document.getElementById('iframeFormSelector-textValue');
         var iframeThanksMessageSelector = document.getElementById('iframeThanksMessage-textValue');
         var generatediframeThanksMessage = document.querySelectorAll('#generatediframeThanksMessage');
         var generatediframeThanksSelector = document.querySelectorAll('#generatediframeThanksSelector');
         var iframeFormSelectorTextBox = document.getElementById('iframeFormSelector-text-box')
         var iframeThanksMessageTextBox = document.getElementById('iframeThanksMessage-text-box')
-        var iframeThanksMessageCode = document.getElementById('iframeThanksMessage-code'); 
+        var iframeThanksMessageCode = document.getElementById('iframeThanksMessage-code');
         // Crear variable capa de datos
         var createDataLayerCode = document.getElementById('create-Data-layer');
         // Crear DOMContentLoaded
-        var DOMContentLoadedCode = document.getElementById('DOMContentLoadedCode');  
+        var DOMContentLoadedCode = document.getElementById('DOMContentLoadedCode');
         // Crear DOMContentLoaded
-        var ClickLinkWhatsappCode = document.getElementById('whatsapp-link-click'); 
+        var ClickLinkWhatsappCode = document.getElementById('whatsapp-link-click');
         // Click link llamada
         var clickLinkLlamada = document.getElementById('tel-link-click');
         // Click link email     
@@ -178,7 +184,7 @@ window.onload = highlightCode;
         // hubSpot Form
         var hubSpotForm = document.getElementById('formHubSpot-code');
         //hubSpot Form Enhanced
-        var hubSpotFormEnhanced = document.getElementById('formHubSpotEnhanced-code');      
+        var hubSpotFormEnhanced = document.getElementById('formHubSpotEnhanced-code');
         // wixChatmessageSent-code
         var wixChatMessageSent = document.getElementById('wixChatmessageSent-code');
         //amoformsSent
@@ -192,314 +198,581 @@ window.onload = highlightCode;
         //localStorage-code
         var localStorageCode = document.getElementById('localStorage-code');
         //prestashopOrderId-code
-        var prestashopOrderIdCode = document.getElementById('prestashopOrderId-code');    
-         
-          
-               
-                  const generatorOptions = {
-                    'formulario mensaje gracias': {
-                        elements: formThnkMsgTextBox,
-                        inputSelector: formThnkMsgSelector,
-                        code: formThnkMsgCode,
-                        generatedElements: [generatedformThnkMsg]
-                    },  
-                      
-                    'link click' :{
-                        elements: linkClickTextBox,
-                        inputSelector: linkClickUrl,
-                        code: linkClickCode,
-                        generatedElements:[generatedlinkClickUrl] 
-                    }, 
-                     
-                    'class click' :{
-                        elements: classClickTextBox,
-                        inputSelector: clickClassSelector,
-                        code: classClickCode,
-                        generatedElements:[generatedClassClick] 
-                     },
-                      
-                    'Click ShadowRoot': {
-                     elements: ShadowRootSelectorTextBox,
-                     inputSelector: ShadowRootSelector, 
-                     inputSelector2: ShadowRootButtonSelector,
-                     code: shadowRootClickcode, 
-                     generatedElements: [generatedShadowRootSelector, generatedShadowRootButtonSelector]
-                     },
-                     
-                     'id click' :{
-                     elements: idClickTextBox,
-                     inputSelector : clickIdSelector,
-                     code: idClickCode,
-                     generatedElements: [generatedIdClick]
-                     },
-                      
-                     'attribute click' : {
-                      elements: attributeClickTextBox,
-                      inputSelector: clickAttributeSelector,
-                      code: attributeClickCode,
-                      generatedElements: [generatedAttributeClick]
-                         
-                   },
-                        
-                     'formulario mensaje gracias mejorado' : {
-                      elements: formThnkMsgEnhancedTextBox,
-                      inputSelector: formThnkMsgEnhancedSelector,
-                      code: formThnkMsgEnhancedCode,
-                      generatedElements: [generatedformThnkMsgEnhanced]
-                     },
-                         
-                      'formulario click text mejorado' : {
-                       elements: formClickTextEnhancedTextBox,
-                       inputSelector: formClickTextEnhancedSelector,
-                       code: formClickTextEnhancedCode,
-                       generatedElements: [generatedformClickTextEnhanced]
-                     },
-                      
-                      'formulario click selector mejorado' : { 
-                       elements: formClickSelectorEnhancedTextBox,
-                       inputSelector:formClickSelectorEnhancedSelector, 
-                       code: formClickSelectorEnhancedCode,
-                       generatedElements: [generatedformClickSelectorEnhanced]
-                      },
-                      
-                      'forEach attribute click' : {
-                       elements: forEachAttributeClickTextBox,
-                       inputSelector:clickForEachAttributeSelector, 
-                       code: forEachAttributeClickCode,
-                       generatedElements: [generatedAttributeForEachClick]
-                      },
-                      
-                      'forEach click' : { 
-                       elements: forEachClickTextBox,
-                       inputSelector:clickForEachSelector, 
-                       code: forEachClickCode,
-                       generatedElements: [generatedForEachClick]
-                      },
-                      
-                      'forEach click' : { 
-                       elements: forEachClickTextBox,
-                       inputSelector:clickForEachSelector, 
-                       code: forEachClickCode,
-                       generatedElements: [generatedForEachClick]
-                      },
-                      
-                       'click iframe' : {
-                       elements: iframeClickSelectorTextBox,
-                       inputSelector: iframeClickSelector,
-                       inputSelector2: iframeClickButtonSelector, 
-                       code: iframeClickcode,
-                       generatedElements: [generatediframeClickSelector, generatediframeClickButtonSelector]
-                      },
-                      
-                       'iframe mensaje gracias' : {
-                        elements: iframeFormSelectorTextBox, 
-                        inputSelector: iframeFormSelector,
-                        inputSelector2: iframeThanksMessageSelector,
-                        code: iframeThanksMessageCode,
-                        generatedElements: [generatediframeThanksMessage, generatediframeThanksSelector]
-                       },
-                      
-                      'create DataLayer' : {      
-                        code: createDataLayerCode
-                       },
-                      
-                      'create DOMContentLoaded' : {      
-                        code: DOMContentLoadedCode
-                       },
-                      
-                      'Click link Whatsapp' : {      
-                        code: ClickLinkWhatsappCode
-                       },
-                      
-                       'Click link llamada' :{
-                        code: clickLinkLlamada
-                      },
-                      
-                      'Click link email' :{
-                        code: clickLinkEmail
-                      },
-                      
-                      'Hubspot Form' :{
-                        code: hubSpotForm
-                      },
+        var prestashopOrderIdCode = document.getElementById('prestashopOrderId-code');
+        //upnifyForm-code
+        var upnifyFormCode = document.getElementById('upnifyForm-code');
+        var upnifyFormEnhancedCode = document.getElementById('upnifyFormEnhanced-code');
+        //Compra Shopify
+        var shopifyPurchaseTextBox = document.getElementById('shopifyPurchaseAdsId-text-box');
+        var inputShopifyAdsId = document.getElementById('shopifyPurchaseAdsId-textValue');
+        var inputShopifyConversionLabel = document.getElementById('shopifyPurchaseConversionLabel-textValue');
+        var inputShopifyCurrency = document.getElementById('shopifyPurchaseCurrency-textValue');
+        var shopifyPurchaseCode = document.getElementById('shopifyPurchase-code');
+        var generatedShopifyAdsId = document.querySelectorAll('#generatedAdsId');
+        var generatedShopifyConversionLabel = document.querySelectorAll('#generatedConversionLabel');
+        var generatedShopifyCurrency = document.querySelectorAll('#generatedCurrency');
+        //Compra Shopify Enhanced
+        var shopifyPurchaseEnhancedTextBox = document.getElementById('shopifyPurchaseEnhancedConversionLabel-text-box');
+        var inputShopifyConversionLabelEnhanced = document.getElementById('shopifyPurchaseEnhancedConversionLabel-textValue');
+        var shopifyPurchaseEnhancedCode = document.getElementById('shopifyPurchaseEnhanced-code');
+        var generatedShopifyConversionLabelEnhanced = document.querySelectorAll('#generatedConversionLabelEnhanced');
+        //setInterval
+        var setIntervalSelectorTextBox = document.getElementById('setIntervalSelector-text-box');
+        var setIntervalSelectorTextValue = document.getElementById('setIntervalSelector-textValue');
+        var setIntervalCode = document.getElementById('setInterval-code');
+        var generatedSetIntervalSelector = document.querySelectorAll('#generatedSetIntervalSelector');
+        //KeyDOwn
+        var keyDownSelectorTextBox = document.getElementById('keyDownSelector-text-box');
+        var keyDownSelectorTextValue = document.getElementById('keyDownSelector-textValue');
+        var keyDownCode = document.getElementById('InputEnter-code');
+        var generatedKeyDownSelector = document.querySelectorAll('#generatedKeyDownSelector');
+        //generateGTMOdoo
+        var GTMOdooTextBox = document.getElementById('GTMOdooId-text-box');
+        var GTMOdooTextValue = document.getElementById('GTMOdooId-textValue');
+        var GTMOdooCode = document.getElementById('GTMOdoo-code');
+        var generatedGTMOdooId = document.querySelectorAll('#generatedGTMOdooId');
+        //ClickSelector
+        var ClickSelectorTextBox = document.getElementById('selector-click-text-box');
+        var ClickSelectorTextValue = document.getElementById('selector-click-textValue');
+        var ClickSelectorCode = document.getElementById('selector-click-code');
+        var generatedSelectorClick = document.querySelectorAll('#generatedSelectorClick');
+        // FormClickSelectorPreventDefault
+        var formSelectorClickPreventDefaultTextBox = document.getElementById('formSelectorClickPreventDefault-text-box');
+        var formSelectorClickPreventDefaultTextValue = document.getElementById('formSelectorClickPreventDefault-textValue');
+        var formSelectorPrevenDefaultCode = document.getElementById('form-selector-prevenDefault-code');
+        var generatedFormSelectorClick = document.querySelectorAll('#generatedFormSelectorClick');
+        // ehanced gtag
+        var EnhancedGtagAdsIdTextBox = document.getElementById('EnhancedGtagAdsIdtext-box');
+        var EnhancedGtagAdsIdTextValue = document.getElementById('EnhancedGtagAdsId-textValue');
+        var EnhancedAdsConversionLabelTextValue = document.getElementById('EnhancedAdsConversionLabel-textValue');
+        var EnhancedgtagCode = document.getElementById('Enhancedgtag-code');
+        var generatedEnhancedGtagAdsId = document.querySelectorAll('#generatedEnhancedGtagAdsId');
+        var generatedEnhancedAdsConversionLabel = document.querySelectorAll('#generatedEnhancedAdsConversionLabel');
+        //HubSpotChat
+        var HubSpotChatMessageSentCode = document.getElementById('HubSpotChatMessageSent-code')
+        //CountryCode
+        var checkBoxPhoneConversionDiv = document.getElementById('inputPhoneDiv');
+        var countryCodeDiv = document.getElementById('countryCode');
+        var countryCodeCheckBox = document.getElementById('checkBoxPhoneConversion');
+        var countryCodeInputBox = document.getElementById('countryCode-value');
+        var generatedCountryCode = document.querySelectorAll('#generatedCountryCode');
+        var generatedCountryCodeCodeConditions = document.querySelectorAll('#generatedCountryCodeCodeConditions');
+        //function enhanced validation
+        var functionEnhancedValidationCode = document.getElementById('functionEnhancedValidation-code');
 
-                      'Hubspot avanzado Form' :{
-                        code: hubSpotFormEnhanced
-                      },
-                        
-                       'Mensaje enviado Wix Chat' :{
-                        code: wixChatMessageSent
-                      },
-                      
-                      'Formulario amoforms' :{
-                        code: amoFormsSent
-                      },
-                      
-                      'Cliengo Lead Whatsapp' :{
-                        code: cliengoLeadWhatsapp
-                      },
-                        
-                      'Formulario Zoho' :{
-                        code: zohoFormCode
-                      },
-                      
-                      'Calendly Scheduled':{
-                        code: calendlyScheduledCode
-                      }, 
-                      
-                      'Local Storage':{
-                        code: localStorageCode
-                      },
-                      
-                      'Prestashop Order Id Url':{
-                        code: prestashopOrderIdCode
-                      }
-                      
-                  }
-                  
-                  
-                  
-                  //hide all options
-                   for(const optionName in generatorOptions)
-                      {
-                        var option = generatorOptions[optionName];
-                          if(option.elements){
-                            option.elements.style.display = 'none'; 
-                             }  
-                          
-                           if(option.code){
-                            option.code.style.display = 'none';
-                              console.log('hidden');
-                            }
-                      };
-            
-              
-                        //opcion por defecto:
-              activatorTypeSelect.value = 'formulario mensaje gracias';
-              
-                    //show default options
-                  generatorOptions['formulario mensaje gracias'].elements.style.display = 'block';
-                  generatorOptions['formulario mensaje gracias'].code.style.display = 'block';
-            
-            
-             function showOption(){
-                     
-                     var selectedOption = generatorOptions[activatorTypeSelect.value];
-                      //hide all options
-                   for(const optionName in generatorOptions)
-                      {
-                        var option = generatorOptions[optionName];
-                          if(option.elements){
-                            option.elements.style.display = 'none';
-                            }
-                          
-                          if(option.code){
-                            option.code.style.display = 'none';
-                              console.log('hidden');
-                            }
-                      };  
-                       
-                     //show selected option
-                    if(selectedOption){
-                        
-                       if(selectedOption.elements){
-                         selectedOption.elements.style.display = 'block';
-                       }
-                        
-                       if(selectedOption.code){
-                        selectedOption.code.style.display = 'block';
-                       }
-                        
-                      if(!selectedOption.inputSelector)
-                      {
-                          inputEventName.style.display = 'none';
-                      }
-                        else 
-                        {
-                         inputEventName.style.display = 'block';
-                        }
-                    }       
-               } 
-            
-            
-                 
+
+
+        const generatorOptions = {
+            'formulario mensaje gracias': {
+                elements: formThnkMsgTextBox,
+                inputSelector: formThnkMsgSelector,
+                code: formThnkMsgCode,
+                generatedElements: [generatedformThnkMsg]
+            },
+
+            'link click': {
+                elements: linkClickTextBox,
+                inputSelector: linkClickUrl,
+                code: linkClickCode,
+                generatedElements: [generatedlinkClickUrl]
+            },
+
+            'class click': {
+                elements: classClickTextBox,
+                inputSelector: clickClassSelector,
+                code: classClickCode,
+                generatedElements: [generatedClassClick]
+            },
+
+            'Click ShadowRoot': {
+                elements: ShadowRootSelectorTextBox,
+                inputSelector: ShadowRootSelector,
+                inputSelector2: ShadowRootButtonSelector,
+                code: shadowRootClickcode,
+                generatedElements: [generatedShadowRootSelector, generatedShadowRootButtonSelector]
+            },
+
+            'id click': {
+                elements: idClickTextBox,
+                inputSelector: clickIdSelector,
+                code: idClickCode,
+                generatedElements: [generatedIdClick]
+            },
+
+            'attribute click': {
+                elements: attributeClickTextBox,
+                inputSelector: clickAttributeSelector,
+                code: attributeClickCode,
+                generatedElements: [generatedAttributeClick]
+
+            },
+
+
+            'formulario mensaje gracias mejorado': {
+                elements: formThnkMsgEnhancedTextBox,
+                inputSelector: formThnkMsgEnhancedSelector,
+                code: formThnkMsgEnhancedCode,
+                generatedElements: [generatedformThnkMsgEnhanced],
+                isEnhanced: true
+            },
+
+            'formulario click text mejorado': {
+                elements: formClickTextEnhancedTextBox,
+                inputSelector: formClickTextEnhancedSelector,
+                code: formClickTextEnhancedCode,
+                generatedElements: [generatedformClickTextEnhanced],
+                isEnhanced: true
+            },
+
+            'formulario click selector mejorado': {
+                elements: formClickSelectorEnhancedTextBox,
+                inputSelector: formClickSelectorEnhancedSelector,
+                code: formClickSelectorEnhancedCode,
+                generatedElements: [generatedformClickSelectorEnhanced],
+                isEnhanced: true
+            },
+
+            'forEach attribute click': {
+                elements: forEachAttributeClickTextBox,
+                inputSelector: clickForEachAttributeSelector,
+                code: forEachAttributeClickCode,
+                generatedElements: [generatedAttributeForEachClick]
+            },
+
+            'forEach click': {
+                elements: forEachClickTextBox,
+                inputSelector: clickForEachSelector,
+                code: forEachClickCode,
+                generatedElements: [generatedForEachClick]
+            },
+
+            'forEach click': {
+                elements: forEachClickTextBox,
+                inputSelector: clickForEachSelector,
+                code: forEachClickCode,
+                generatedElements: [generatedForEachClick]
+            },
+
+            'click iframe': {
+                elements: iframeClickSelectorTextBox,
+                inputSelector: iframeClickSelector,
+                inputSelector2: iframeClickButtonSelector,
+                code: iframeClickcode,
+                generatedElements: [generatediframeClickSelector, generatediframeClickButtonSelector]
+            },
+
+            'iframe mensaje gracias': {
+                elements: iframeFormSelectorTextBox,
+                inputSelector: iframeFormSelector,
+                inputSelector2: iframeThanksMessageSelector,
+                code: iframeThanksMessageCode,
+                generatedElements: [generatediframeThanksMessage, generatediframeThanksSelector]
+            },
+
+            'Compra Shopify': {
+                elements: shopifyPurchaseTextBox,
+                inputSelector: inputShopifyAdsId,
+                inputSelector2: inputShopifyConversionLabel,
+                inputSelector3: inputShopifyCurrency,
+                code: shopifyPurchaseCode,
+                generatedElements: [generatedShopifyAdsId, generatedShopifyConversionLabel, generatedShopifyCurrency],
+                noNeedOfEvent: true
+            },
+
+            'Compra avanzada Shopify': {
+                elements: shopifyPurchaseEnhancedTextBox,
+                inputSelector: inputShopifyConversionLabelEnhanced,
+                code: shopifyPurchaseEnhancedCode,
+                generatedElements: [generatedShopifyConversionLabelEnhanced],
+                noNeedOfEvent: true
+            },
+
+            'create DataLayer': {
+                code: createDataLayerCode,
+                noNeedOfEvent: true
+            },
+
+            'create DOMContentLoaded': {
+                code: DOMContentLoadedCode,
+                noNeedOfEvent: true
+            },
+
+            'Click link Whatsapp': {
+                code: ClickLinkWhatsappCode,
+                noNeedOfEvent: true
+            },
+
+            'Click link llamada': {
+                code: clickLinkLlamada,
+                noNeedOfEvent: true
+            },
+
+            'Click link email': {
+                code: clickLinkEmail,
+                noNeedOfEvent: true
+            },
+
+            'Hubspot Form': {
+                code: hubSpotForm,
+                noNeedOfEvent: true
+            },
+
+            'Hubspot avanzado Form': {
+                code: hubSpotFormEnhanced,
+                isEnhanced: true
+            },
+
+            'Mensaje enviado Wix Chat': {
+                code: wixChatMessageSent,
+                noNeedOfEvent: true
+            },
+
+            'Formulario amoforms': {
+                code: amoFormsSent,
+                noNeedOfEvent: true
+            },
+
+            'Cliengo Lead Whatsapp': {
+                code: cliengoLeadWhatsapp,
+                noNeedOfEvent: true
+            },
+
+            'Formulario Zoho': {
+                code: zohoFormCode,
+                noNeedOfEvent: true
+            },
+
+            'Calendly Scheduled': {
+                code: calendlyScheduledCode,
+                noNeedOfEvent: true
+            },
+
+            'Local Storage': {
+                code: localStorageCode,
+                noNeedOfEvent: true
+            },
+
+            'Prestashop Order Id Url': {
+                code: prestashopOrderIdCode,
+                noNeedOfEvent: true
+            },
+
+            'Formulario Upnify Whatsapp': {
+                code: upnifyFormCode,
+                noNeedOfEvent: true
+            },
+
+            'Formulario Upnify Whatsapp avanzado': {
+                code: upnifyFormEnhancedCode,
+                noNeedOfEvent: true
+            },
+
+            'Validar Selector Intervalo': {
+                elements: setIntervalSelectorTextBox,
+                inputSelector: setIntervalSelectorTextValue,
+                code: setIntervalCode,
+                generatedElements: [generatedSetIntervalSelector],
+                noNeedOfEvent: true
+            },
+
+            'Enter Hit': {
+                elements: keyDownSelectorTextBox,
+                inputSelector: keyDownSelectorTextValue,
+                code: keyDownCode,
+                generatedElements: [generatedKeyDownSelector]
+            },
+
+            'GTM Odoo': {
+                elements: GTMOdooTextBox,
+                inputSelector: GTMOdooTextValue,
+                code: GTMOdooCode,
+                generatedElements: [generatedGTMOdooId],
+                noNeedOfEvent: true
+            },
+
+            'Selector click': {
+                elements: ClickSelectorTextBox,
+                inputSelector: ClickSelectorTextValue,
+                code: ClickSelectorCode,
+                generatedElements: [generatedSelectorClick]
+
+            },
+
+
+            'HubSpot Chat Mensaje Enviado': {
+
+                code: HubSpotChatMessageSentCode,
+                noNeedOfEvent: true
+
+            },
+
+            'formulario click selector prevent Default': {
+                elements: formSelectorClickPreventDefaultTextBox,
+                inputSelector: formSelectorClickPreventDefaultTextValue,
+                code: formSelectorPrevenDefaultCode,
+                generatedElements: [generatedFormSelectorClick]
+            },
+
+            'gtag enhanced': {
+                elements: EnhancedGtagAdsIdTextBox,
+                inputSelector: EnhancedGtagAdsIdTextValue,
+                inputSelector2: EnhancedAdsConversionLabelTextValue,
+                code: EnhancedgtagCode,
+                generatedElements: [generatedEnhancedGtagAdsId, generatedEnhancedAdsConversionLabel],
+                noNeedOfEvent: true
+
+            },
+
+            'Validación Email y Phone Function': {
+                code: functionEnhancedValidationCode,
+                noNeedOfEvent: true
+            },
+        }
+
+
+
+        //hide all options
+        for (const optionName in generatorOptions) {
+            var option = generatorOptions[optionName];
+            if (option.elements) {
+                option.elements.querySelectorAll('input').forEach(function(e) {
+                    e.removeAttribute("required");
+                    //e.setAttribute("hidden", "true");
+                })
+
+                option.elements.style.display = 'none';
+
+            }
+
+            if (option.code) {
+                option.code.style.display = 'none';
+                console.log('hidden');
+            }
+        };
+
+
+        //opcion por defecto:
+        activatorTypeSelect.value = 'formulario mensaje gracias';
+
+        //show default options
+        generatorOptions['formulario mensaje gracias'].elements.style.display = 'block';
+        generatorOptions['formulario mensaje gracias'].code.style.display = 'block';
+        generatorOptions['formulario mensaje gracias'].elements.querySelectorAll('input').forEach(function(e) {
+            e.setAttribute("required", "true");
+        })
+
+        //hide country code section
+        checkBoxPhoneConversionDiv.style.display = 'none';
+        countryCodeDiv.style.display = 'none';
+        countryCodeInputBox.removeAttribute("required");
+
+        generatedCountryCodeCodeConditions.forEach(function(e) {
+
+            e.style.display = 'none';
+        })
+
+
                
+  
+              
+
+        function showOption() {
+
+            var selectedOption = generatorOptions[activatorTypeSelect.value];
             
-            function generateCode() {
-                
-                
-               var eventName = document.querySelector("#event-name-value").value;
-                activatorTypeSelect = document.getElementById('activatorType');
-                
-            for(const key in generatorOptions){
-                
-             if(activatorTypeSelect.value == key)
-                {
+                var eventData = {
+                 event: activatorTypeSelect.value.replaceAll(' ','_').trim()
+  
+                    };
+            window.parent.postMessage(eventData, '*');
+
+            
+            //hide all options
+            for (const optionName in generatorOptions) {
+                var option = generatorOptions[optionName];
+                if (option.elements) {
+
+                    option.elements.querySelectorAll('input').forEach(function(e) {
+                        e.removeAttribute("required");
+                    })
+
+                    option.elements.style.display = 'none';
+
+
+
+                }
+
+                if (option.code) {
+                    option.code.style.display = 'none';
+                    console.log('hidden');
+                }
+            };
+
+            countryCodeCheckBox.addEventListener('change', function() {
+                if (countryCodeCheckBox.checked) {
+                    console.log('checked');
+                    countryCodeDiv.style.display = 'block';
+                    countryCodeInputBox.setAttribute("required", "true");
+                    generatedCountryCodeCodeConditions.forEach(function(e) {
+
+                        e.style.display = 'block';
+                    })
+                } else {
+                    console.log('unchecked')
+                    countryCodeDiv.style.display = 'none';
+                    countryCodeInputBox.removeAttribute("required");
+                    generatedCountryCodeCodeConditions.forEach(function(e) {
+
+                        e.style.display = 'none';
+                    })
+                }
+            })
+
+            //show selected option
+            if (selectedOption) {
+
+                if (selectedOption.elements) {
+                    selectedOption.elements.style.display = 'block';
+                    selectedOption.elements.querySelectorAll('input').forEach(function(e) {
+                        e.setAttribute("required", "true");
+                    })
+                }
+
+                if (selectedOption.code) {
+                    selectedOption.code.style.display = 'block';
+                }
+
+                if (selectedOption.inputSelector) {
+                    document.getElementById('generateCode').style.display = 'block';
+                } else {
+                    document.getElementById('generateCode').style.display = 'none';
+                }
+
+
+
+                if (selectedOption.noNeedOfEvent === true) {
+                    inputEventName.style.display = 'none';
+
+                } else {
+                    inputEventName.style.display = 'block';
+                    document.getElementById('generateCode').style.display = 'block';
+                }
+
+                //showCountry code for enhanced
+
+                if (selectedOption.isEnhanced === true) {
+                    checkBoxPhoneConversionDiv.style.display = 'block';
+                    checkBoxPhoneConversionDiv.setAttribute("required", "true");
+                } else {
+                    checkBoxPhoneConversionDiv.style.display = 'none';
+                    checkBoxPhoneConversionDiv.removeAttribute("required");
+                }
+
+            }
+        }
+
+
+
+
+        function generateCode() {
+
+
+            var eventName = document.querySelector("#event-name-value").value;
+            activatorTypeSelect = document.getElementById('activatorType');
+
+            for (const key in generatorOptions) {
+
+                if (activatorTypeSelect.value == key) {
 
                     var option = generatorOptions[key];
                     option.code.style.display = 'block';
+
                     
+                    if (option.inputSelector) {
+                        option.generatedElements[0].forEach(function(e) {
+                        e.textContent = option.inputSelector.value;
+
+                         })
+                    }
                     
-                    
-                    option.generatedElements[0].forEach(function(e)
-                                   {
-                 
-                                    e.textContent = option.inputSelector.value;
-                                    console.log('Generated inputSelector1 '+e.textContent)
-                                   })
-                  
-                    
-                    if(option.inputSelector2)
-                    {
-                       option.generatedElements[1].forEach(function(e)
-                                   {
-                                   
-                                    e.textContent = option.inputSelector2.value;
-                                    console.log('Generated inputSelector2 '+e.textContent);
-                         
-                                   })
+                    if (option.inputSelector2) {
+                        console.log('inputSelector2 = ' + option.inputSelector2.value)
+                        option.generatedElements[1].forEach(function(e) {
+
+                            e.textContent = option.inputSelector2.value;
+
+
+                        })
+
+
+                    }
+
+                    if (option.inputSelector3) {
+                        console.log('inputSelector3 = ' + option.inputSelector3.value)
+                        option.generatedElements[2].forEach(function(e) {
+
+                            e.textContent = option.inputSelector3.value;
+
+
+                        })
+
+
+                    }
+
+                    if (option.isEnhanced === true) {
+                        generatedCountryCode.forEach(function(e) {
+                            e.textContent = countryCodeInputBox.value;
+
+                        })
+                    }
+
+
+                    generatedEventName.forEach(function(e) {
+                        e.textContent = eventName;
                         
-                        
-                    } 
-                 generatedEventName.forEach(function(e)
-                                   {
-                                    e.textContent = eventName;
-                                    console.log('evento '+e.textContent)
-                                   })                    
-                    
+
+                    })
+
                 }
-               }
             }
-            
-             document.querySelector('#generateCode').addEventListener('click', function() {
-                 
-                                generateCode();
-                             });
-            
-               document.querySelectorAll('.input-group__input').forEach(function(e) {
-                     e.addEventListener('keydown', function() {
-                        if (event.key === 'Enter' || event.key === 'Tab') {
-                                                             
-                         generateCode();
-                         }
-                     });
-                   });
-            
-              activatorTypeSelect.addEventListener('change', function () 
-                 {
-                      showOption();
-                });
-               
-  //Cierre Gestor de opciones
-              
-   
-              
-     //            
-        
+
+        }
+
+        //envio de formulario   
+        document.getElementById("form-generate-code").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent the default form submission
+            console.log('form enviado')
+
+        });
+
+        //generar codigo con click en el boton
+        document.querySelector('#generateCode').addEventListener('click', function() {
+
+            generateCode();
+        });
+        //generar codigo con tab o enter
+        document.querySelectorAll('.input-group__input').forEach(function(e) {
+            e.addEventListener('keydown', function() {
+                if (event.key === 'Enter' || event.key === 'Tab') {
+                    generateCode();
+
+                }
+            });
+        });
+        //mostrar opciones
+        activatorTypeSelect.addEventListener('change', function() {
+            showOption();
+        });
+
+        //Cierre Gestor de opciones
+
+
+
+        //            
+
     }, 100);
 });
-        
-  
+    
         //copiar codigo
         document.addEventListener('DOMContentLoaded', function() {
             
@@ -507,7 +780,7 @@ window.onload = highlightCode;
       
         document.querySelectorAll('#copy-code-button').forEach(function(btn) {
   btn.addEventListener('click', function() {
-    var codeElement = btn.parentNode.parentNode;;
+    var codeElement = btn.parentNode;
     if (codeElement) {
       var codeText = codeElement.innerText.trim();
 
@@ -529,3 +802,4 @@ window.onload = highlightCode;
           }, 100);
        });     
         
+ 
