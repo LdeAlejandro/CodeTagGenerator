@@ -1,5 +1,6 @@
+   
 
-    
+  
         body {
     font-family: Arial, sans-serif;
     background-color: #18122b; /* Dark background color */
@@ -11,8 +12,9 @@
 
 .container {
      /*flex: 0 0 calc(33.33% - 20px); /* Adjust width as needed */
-    width: 40%; /* You can adjust this width as needed */
+    width: 50%; /* You can adjust this width as needed */
     margin: 0 auto;
+    margin-top: 40px;
     /*margin-left: 25%;*/
     padding: 10px;
     border: 1px solid #555; /* Darker border color */
@@ -163,7 +165,7 @@ font-size: 16px;
 
 }
    
-.code {
+pre {
     font-family: "Courier New", monospace;
     background-color: #202020;
     padding: 10px;
@@ -196,7 +198,7 @@ font-size: 16px;
     color: #ae81ff; 
 }
         
-.language-html .scriptTag{
+.language-html .htmlTag{
     color: #f92672; 
 }
         
@@ -209,6 +211,5 @@ font-size: 16px;
 } 
 
 .language-html .function-name{
-    color: #fd971f; 
-}         
-        
+    color: #fd971f;
+    }
