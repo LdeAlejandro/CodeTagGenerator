@@ -1,3 +1,4 @@
+ 
 
         
         //highLight Code
@@ -7,8 +8,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
         document.querySelectorAll('.code').forEach(function(codeElement) {
 
-            const codeContent = codeElement.innerHTML;
-            const codeLines = codeContent.split('\n');
+           const codeContent = codeElement.innerHTML;
+           const codeLines = codeContent.split('\n');
             let highlightedCode = '';
 
             for (const line of codeLines) {
@@ -35,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     .replace(/\b\d+(\.\d+)?\b/g, '<span class="number">$&</span>')
                     .replace(/\b(if|else|for|while)\b/g, '<span class="keyword">$1</span>')
                     .replace(/\b(function)\s+(\w+)\s*()/g, '<span class="keyword">$1</span> <span class="function-name">$2</span>')
-                    .replace(/([^'"])\.(.*?)(?=[\s.({\[]|$)/g, '$1.<span class="function">$2</span>')
+                    .replace(/([^'"])\.(\w+)(?=[\s.({\[]|$)/g, '$1.<span class="function">$2</span>')
                     .replace(/\b(var|let|const)\s+(\w+)\s*=/g, '<span class="variable">$1</span> <span class="var-name">$2</span> =')
                     .replace(/\/\/(.*)/g, '<span class="comment">//$1</span>')
                     .replace(/&lt;(script|noscript|iframe)&gt;/g, '<span class="htmlTag">&lt;$1&gt;</span>')
@@ -57,15 +58,78 @@ document.addEventListener('DOMContentLoaded', function() {
     // Llama a la función de resaltado cuando se carga la página
     window.onload = highlightCode;
 
-});
-  
-        //code Generator
+    //code editor
+    var codeEditorElement = document.querySelector('#code-editor');
 
+
+    function highlightCodeEditor(){
+    // Delete classes from elements
+    var codeLinesElements = document.querySelectorAll("#code-editor .code-line span");
+
+    codeLinesElements.forEach(function (spanElement) {
+        // Check if the span has a class added by the highlighting process
+        if (spanElement.classList.contains("string") ||
+            spanElement.classList.contains("number") ||
+            spanElement.classList.contains("keyword") ||
+            spanElement.classList.contains("function-name") ||
+            spanElement.classList.contains("function") ||
+            spanElement.classList.contains("variable") ||
+            spanElement.classList.contains("var-name") ||
+            spanElement.classList.contains("comment") ||
+            spanElement.classList.contains("htmlTag")) {
+            spanElement.outerHTML = spanElement.innerHTML; // Replace the span with its content
+        }
+    });
+
+    console.log('Editor Listener');
+    var codeEditorContent = codeEditorElement.innerHTML;
+    var codeLines = codeEditorContent.split('\n');
+    let highlightedCode = '';
+
+    for (var line of codeLines) {
+        
+        var highlightedLine = line
+            .replace(/(['])(.*?)\1/g, '<span class="string">$1$2$1</span>')
+            .replace(/\b\d+(\.\d+)?\b/g, '<span class="number">$&</span>')
+            .replace(/\b(if|else|for|while)\b/g, '<span class="keyword">$1</span>')
+            .replace(/\b(function)\s+(\w+)\s*()/g, '<span class="keyword">$1</span> <span class="function-name">$2</span>')
+            .replace(/([^'"])\.(\w+)(?=[\s.({\[]|$)/g, '$1.<span class="function">$2</span>')
+            .replace(/\b(var|let|const)\s+(\w+)\s*=/g, '<span class="variable">$1</span> <span class="var-name">$2</span> =')
+            .replace(/\/\/(.*)/g, '<span class="comment">//$1</span>')
+            .replace(/&lt;(script|noscript|iframe)&gt;/g, '<span class="htmlTag">&lt;$1&gt;</span>')
+            .replace(/&lt;\/(script|noscript|iframe)&gt;/g, '<span class="htmlTag">&lt;/$1&gt;</span>');
+
+        highlightedCode += '<div class="code-line">' + highlightedLine + '</div>';
+    }
+
+    codeEditorElement.innerHTML = highlightedCode; // Update the code with highlighted content
+        };
+    
+
+codeEditorElement.addEventListener('blur', function () {
+    highlightCodeEditor();
+
+}); 
+
+/* codeEditorElement.addEventListener('keyup', function (e) {
+     if(e.keyCode === 32){
+         highlightCodeEditor();
+}
+    
+
+});  */ 
+
+});
+
+       
+      
+        //code Generator  
 document.addEventListener("DOMContentLoaded", function() {
     setTimeout(function() {
         
-     //capa de datos   
-    window.dataLayer = window.dataLayer || [];
+
+
+  
         // setTimeout(function() { 
         //check localStorage
         /** if(localStorage.getItem('firstLoad')!==null){
@@ -579,6 +643,8 @@ document.addEventListener("DOMContentLoaded", function() {
         function showOption() {
 
             var selectedOption = generatorOptions[activatorTypeSelect.value];
+                
+            console.log(activatorTypeSelect.value.replaceAll(' ','_').trim());
             
                 var eventData = {
                  event: activatorTypeSelect.value.replaceAll(' ','_').trim()
@@ -773,6 +839,13 @@ document.addEventListener("DOMContentLoaded", function() {
     }, 100);
 });
     
+
+        //codeshare Button
+function openCodeShare() {
+    var codeShareLink = 'https://codeshare.io/new';
+    window.open(codeShareLink, '_blank');
+}
+
         //copiar codigo
         document.addEventListener('DOMContentLoaded', function() {
             
@@ -802,4 +875,4 @@ document.addEventListener("DOMContentLoaded", function() {
           }, 100);
        });     
         
- 
+
