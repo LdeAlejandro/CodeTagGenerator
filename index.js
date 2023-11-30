@@ -643,6 +643,8 @@ document.addEventListener("DOMContentLoaded", function() {
         function showOption() {
 
             var selectedOption = generatorOptions[activatorTypeSelect.value];
+         
+           gtag('event', activatorTypeSelect.value.replaceAll(' ','_').trim());
                 
             console.log(activatorTypeSelect.value.replaceAll(' ','_').trim());
             
