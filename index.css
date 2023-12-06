@@ -1,5 +1,4 @@
-
-        body {
+       body {
     font-family: Arial, sans-serif;
     background-color: #18122b; /* Dark background color */
     color: #fff; /* Light text color */
@@ -162,10 +161,10 @@ font-size: 16px;
 
 
 }
-   
+  
 pre {
     font-family: "Courier New", monospace;
-    background-color: #202020;
+    background-color: #272822;
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 5px;
@@ -175,40 +174,39 @@ pre {
     white-space: pre-wrap;
     word-wrap: break-word;
 }
-
-.language-html .keyword {
+ .keyword {
     color: #f92672; 
 }
 
-.language-html .string {
+ .string {
     color: #e6db74; 
 }
 
-.language-html .comment {
+  .comment {
     color: #999; 
 }
 
-.language-html .variable {
+ .variable {
     color: #f92672; 
 }
 
-.language-html .number {
+.number {
     color: #ae81ff; 
 }
         
-.language-html .htmlTag{
+.htmlTag{
     color: #f92672; 
 }
         
-.language-html .var-name{
+.var-name{
     color: #fd971f; 
 }  
 
-.language-html .function{
+.function{
     color: #a6e22e; 
 } 
 
-.language-html .function-name{
+.function-name{
     color: #fd971f; 
 }         
 
@@ -216,6 +214,25 @@ pre {
     outline: none;
     border: none;
     
-}        
+}
+
         
+.token {
+    font-size: 14px;
     
+} 
+
+.token.keyword {
+    color: #f92672;
+    
+} 
+
+.token.string {
+     color: #e6db74; 
+    
+}
+
+.token.function {
+     color: #a6e22e; 
+    
+}  
