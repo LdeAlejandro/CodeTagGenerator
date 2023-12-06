@@ -1,6 +1,5 @@
  
 
-        
         //highLight Code
 document.addEventListener('DOMContentLoaded', function() {
 
@@ -58,7 +57,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Llama a la función de resaltado cuando se carga la página
     window.onload = highlightCode;
 
-    //code editor
+  /*  //code editor
     var codeEditorElement = document.querySelector('#code-editor');
 
 
@@ -110,7 +109,7 @@ codeEditorElement.addEventListener('blur', function () {
     highlightCodeEditor();
 
 }); 
-
+*/
 /* codeEditorElement.addEventListener('keyup', function (e) {
      if(e.keyCode === 32){
          highlightCodeEditor();
@@ -118,6 +117,18 @@ codeEditorElement.addEventListener('blur', function () {
     
 
 });  */ 
+
+    //code editor prism
+
+    //<!-- Initialize Prism.js for initial highlighting -->
+  Prism.highlightAll();
+  
+  // Update code highlighting when content changes
+  document.getElementById('code-editor').addEventListener('blur', function() {
+    Prism.highlightAll();
+  });
+
+
 
 });
 
@@ -643,9 +654,8 @@ document.addEventListener("DOMContentLoaded", function() {
         function showOption() {
 
             var selectedOption = generatorOptions[activatorTypeSelect.value];
-         
-           gtag('event', activatorTypeSelect.value.replaceAll(' ','_').trim());
-                
+
+            gtag('event', activatorTypeSelect.value.replaceAll(' ','_').trim());        
             console.log(activatorTypeSelect.value.replaceAll(' ','_').trim());
             
                 var eventData = {
