@@ -10,9 +10,6 @@
     <!-- favicon -->
    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' class='h-4 w-4 text-blue-500' fill='none' viewBox='0 0 24 24' stroke='cyan'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4'%3E%3C/path%3E%3C/svg%3E" type="image/svg+xml">
    
-<link rel="stylesheet" type="text/css" href="index.css">
-    <script src="index.js"></script>
-	
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-SS6WQYXDSM"></script>
 <script>
@@ -23,9 +20,16 @@
   gtag('config', 'G-SS6WQYXDSM');
 </script>
 
+	 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.25.0/themes/prism-okaidia.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.25.0"></script>
+	
+<link rel="stylesheet" type="text/css" href="https://ldealejandro.github.io/CodeTagGenerator/index.css">
+ <script src="https://ldealejandro.github.io/CodeTagGenerator/index.js"></script>
+
+    
 </head>
 <body>
-
+    
     
     <div class="container">
         <h1>Code Generator</h1>
@@ -260,7 +264,7 @@
 </form>
     <div class="containerCode" id='link-click-code'>
         <pre> <i class ="fa fa-copy" id="copy-code-button"></i>   
-            <code class="code language-html">
+            <code class="code  ">
 &lt;script&gt;  
 window.addEventListener('click', function (e) {
 if (e.target.closest('[href*="<span id ='generatedlinkClickUrl'></span>"]')) {
@@ -277,7 +281,7 @@ if (e.target.closest('[href*="<span id ='generatedlinkClickUrl'></span>"]')) {
 
     <div class="containerCode" id='id-click-code'>
         <pre><i class ="fa fa-copy" id="copy-code-button"></i>
-            <code class="code language-html">
+            <code class="code  ">
 &lt;script&gt;
 document.querySelector('#<span id ='generatedIdClick'></span>').addEventListener('click',function ()
 {
@@ -293,7 +297,7 @@ document.querySelector('#<span id ='generatedIdClick'></span>').addEventListener
 
     <div class="containerCode" id='class-click-code'>
         <pre><i class ="fa fa-copy" id="copy-code-button"></i>
-            <code class="code language-html">
+            <code class="code  ">
 &lt;script&gt;
 document.querySelector('.<span id ='generatedClassClick'></span>').addEventListener('click',function ()
 {
@@ -309,7 +313,7 @@ document.querySelector('.<span id ='generatedClassClick'></span>').addEventListe
 
     <div class="containerCode" id='attribute-click-code'>
         <pre><i class ="fa fa-copy" id="copy-code-button"></i>
-            <code class="code language-html">
+            <code class="code  ">
 &lt;script&gt;
 document.querySelector('[<span id ='generatedAttributeClick'></span>]').addEventListener('click', function() {
     console.log('was clicked!');
@@ -324,7 +328,7 @@ document.querySelector('[<span id ='generatedAttributeClick'></span>]').addEvent
         
     <div class="containerCode" id='formThnkMsg-code'>
         <pre><i class ="fa fa-copy" id="copy-code-button"></i>
-            <code class="code language-html">
+            <code class="code  ">
 &lt;script&gt;    
 var googleForm = '<span id ='generatedformThnkMsg'></span>';
         (function googleFormValidation() {
@@ -343,7 +347,7 @@ var googleForm = '<span id ='generatedformThnkMsg'></span>';
     </div>           
             <div class="containerCode" id='forEachAttribute-click-code'>
         <pre><i class ="fa fa-copy" id="copy-code-button"></i>
-            <code class="code language-html">
+            <code class="code  ">
 &lt;script&gt;
 document.querySelectorAll('[<span id ='generatedAttributeForEachClick'></span>]').forEach(function(btn) {
   btn.addEventListener('click', function() {
@@ -360,7 +364,7 @@ document.querySelectorAll('[<span id ='generatedAttributeForEachClick'></span>]'
         
      <div class="containerCode" id='forEach-click-code'>
         <pre><i class ="fa fa-copy" id="copy-code-button"></i>
-            <code class="code language-html">
+            <code class="code  ">
 &lt;script&gt;
 document.querySelectorAll('<span id ='generatedForEachClick'></span>').forEach(function(btn) {
   btn.addEventListener('click', function() {
@@ -378,7 +382,7 @@ document.querySelectorAll('<span id ='generatedForEachClick'></span>').forEach(f
     <div class="containerCode" id='formThnkMsgEnhanced-code'>
         <br>
         variable js: <strong><br>g_ECObj.email<br>g_ECObj.phone_number</strong> <pre><i class ="fa fa-copy" id="copy-code-button"></i>
-            <code class="code language-html">
+            <code class="code  ">
 &lt;script&gt;   
 var g_EC = { email: '[type="email"]', phone_number: '[type="tel"]' };
 
@@ -457,7 +461,7 @@ g_save_toECObj();
     <div class="containerCode" id='formClickTextEnhanced-code'>
         <br>
         variable js: <strong><br>g_ECObj.email<br>g_ECObj.phone_number</strong><pre><i class ="fa fa-copy" id="copy-code-button"></i>
-            <code class="code language-html">
+            <code class="code  ">
 &lt;script&gt;   
 var g_EC = { email: '[type="email"]', phone_number: '[type="tel"]' };
 
@@ -533,7 +537,7 @@ g_save_toECObj();
     </div>  
 <div class="containerCode" id='formClickSelectortEnhanced-code'>
       <br> variable js: <strong><br>g_ECObj.email<br>g_ECObj.phone_number</strong> <pre><i class ="fa fa-copy" id="copy-code-button"></i>
-            <code class="code language-html">
+            <code class="code  ">
 &lt;script&gt;   
  var g_EC = { email: '[type="email"]', phone_number: '[type="tel"]' };
 
@@ -609,7 +613,7 @@ g_save_toECObj();
         
 <div class="containerCode" id='shadowRootClick-code'>
      <pre><i class ="fa fa-copy" id="copy-code-button"></i>
-            <code class="code language-html">
+            <code class="code  ">
 &lt;script&gt;   
 var g_shadowInterval = setInterval(function () {
     var g_shadowRoot = document.querySelector('<span id ='generatedShadowRootSelector'></span>');
@@ -634,7 +638,7 @@ g_shadowRoot.shadowRoot.querySelector('<span id ='generatedShadowRootButtonSelec
                 
 <div class="containerCode" id='iframeClick-code'>
         <pre><i class ="fa fa-copy" id="copy-code-button"></i>
-            <code class="code language-html">
+            <code class="code  ">
 &lt;script&gt;   
 (function iframeClickValidation()
 {   
@@ -663,7 +667,7 @@ var gIframeSelector = document.querySelector('<span id ='generatediframeClickSel
         
              <div class="containerCode" id='iframeThanksMessage-code'>
         <pre><i class ="fa fa-copy" id="copy-code-button"></i>
-            <code class="code language-html">
+            <code class="code  ">
 &lt;script&gt;   
  var googleForm = '<span id ='generatediframeThanksMessage'></span>';
  (function googleFormValidation() {
@@ -685,7 +689,7 @@ var gIframeSelector = document.querySelector('<span id ='generatediframeClickSel
         
         <div class="containerCode" id ="create-Data-layer">
         <pre><i class ="fa fa-copy" id="copy-code-button"></i>
-<code class="code language-html"> 
+<code class="code  "> 
 &lt;script&gt; 
 //crear variable capa de datos:
  window.dataLayer = window.dataLayer || [];
@@ -693,7 +697,7 @@ var gIframeSelector = document.querySelector('<span id ='generatediframeClickSel
  </code></pre></div>
         
     <div class="containerCode" id="DOMContentLoadedCode">        
- <pre><i class ="fa fa-copy" id="copy-code-button"></i>  <code class="code language-html">
+ <pre><i class ="fa fa-copy" id="copy-code-button"></i>  <code class="code  ">
 
 &lt;script&gt;  
 // DOMContentLoaded
@@ -705,7 +709,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </code></pre></div> 
         
    <div class="containerCode" id='whatsapp-link-click'>
-<pre><i class ="fa fa-copy" id="copy-code-button"></i> <code class="code language-html">
+<pre><i class ="fa fa-copy" id="copy-code-button"></i> <code class="code  ">
 &lt;script&gt;  
 window.addEventListener('click', function (e) {
   if (e.target.closest('[href*="web.whatsapp"]') || e.target.closest('[href*="api.whatsapp"]') || e.target.closest('[href*="wa.link"]') || e.target.closest('[href*="wa.me"]')) {
@@ -719,7 +723,7 @@ window.addEventListener('click', function (e) {
 </code></pre></div>        
         
 <div class="containerCode" id='tel-link-click'>
-<pre><i class ="fa fa-copy" id="copy-code-button"></i><code class="code language-html">
+<pre><i class ="fa fa-copy" id="copy-code-button"></i><code class="code  ">
 &lt;script&gt;    
 window.addEventListener('click', function (e) {
 if (e.target.closest('[href*="tel:"]')) {
@@ -733,7 +737,7 @@ if (e.target.closest('[href*="tel:"]')) {
 </code></pre></div>         
 
  <div class="containerCode" id='email-link-click'>       
-<pre><i class ="fa fa-copy" id="copy-code-button"></i><code class="code language-html">
+<pre><i class ="fa fa-copy" id="copy-code-button"></i><code class="code  ">
 &lt;script&gt; 
 window.addEventListener('click', function (e) {
 if (e.target.closest('[href*="mailto:"]')) {
@@ -751,7 +755,7 @@ if (e.target.closest('[href*="mailto:"]')) {
 
       <div class="containerCode" id='formHubSpot-code'>
         <pre><i class ="fa fa-copy" id="copy-code-button"></i>
-            <code class="code language-html">
+            <code class="code  ">
 &lt;script&gt;   
   window.addEventListener('message', function (m)
 {
@@ -775,7 +779,7 @@ try
        <div class="containerCode" id='formHubSpotEnhanced-code'>
            variables js: <br><strong>g_ECObj.email</strong><br><strong>g_ECObj.phone_number</strong>
         <pre> <i class ="fa fa-copy" id="copy-code-button"></i> 
-            <code class="code language-html">         
+            <code class="code  ">         
 
 &lt;script&gt;   
 window.g_ECObj = Object.create(null);
@@ -821,7 +825,7 @@ window.g_ECObj = Object.create(null);
     
 <div class="containerCode" id='wixChatmessageSent-code'>
         <pre><i class ="fa fa-copy" id="copy-code-button"></i> 
-            <code class="code language-html">
+            <code class="code  ">
 &lt;script&gt;   
 window.addEventListener('message', function(e) {
   var jsonData = JSON.parse(e.data);
@@ -840,7 +844,7 @@ window.addEventListener('message', function(e) {
 
  <div class="containerCode" id='amoformsSent-code'>
         <pre><i class ="fa fa-copy" id="copy-code-button"></i> 
-            <code class="code language-html">
+            <code class="code  ">
 &lt;script&gt;   
 window.addEventListener('message', function(event) {
   try {
@@ -861,7 +865,7 @@ window.addEventListener('message', function(event) {
  
 <div class="containerCode" id='cliengoLeadWhatsapp-code'>
         <pre><i class ="fa fa-copy" id="copy-code-button"></i> 
-            <code class="code language-html">
+            <code class="code  ">
 &lt;script&gt;   
 window.addEventListener('message', function(e) {
   var jsonData = e.data;
@@ -879,7 +883,7 @@ window.addEventListener('message', function(e) {
          
 <div class="containerCode" id='zohoForm-code'>
         <pre><i class ="fa fa-copy" id="copy-code-button"></i>
-            <code class="code language-html"> 
+            <code class="code  "> 
 &lt;script&gt;   
     window.addEventListener('message', function (m) {
       try {
@@ -901,7 +905,7 @@ window.addEventListener('message', function(e) {
  
 <div class="containerCode" id='calendlyScheduled-code'>
         <pre><i class ="fa fa-copy" id="copy-code-button"></i> 
-            <code class="code language-html">
+            <code class="code  ">
 &lt;script&gt;   
     window.addEventListener('message', function (m) {
       if (m.data.event.includes('event_scheduled')) {
@@ -918,7 +922,7 @@ window.addEventListener('message', function(e) {
         
 <div class="containerCode" id='localStorage-code'>codigo de Ejemplo:
         <pre> <i class ="fa fa-copy" id="copy-code-button"></i>  
-            <code class="code language-html">       
+            <code class="code  ">       
 //variable con informacion que desea guardar.
 var googleValue = document.querySelector("#ejemplo").innerText.replace(/\D/g,'')/ 100;
       
@@ -945,7 +949,7 @@ localStorage.getItem('googleValue');
         
 <div class="containerCode" id='prestashopOrderId-code'>Order id que viene de la url de la pagina final de compra.
         <pre><i class ="fa fa-copy" id="copy-code-button"></i>    
-            <code class="code language-html">     
+            <code class="code  ">     
 
 function (){
 return window.location.href.match(/id_order=(\d+)/)[1];
@@ -956,7 +960,7 @@ return window.location.href.match(/id_order=(\d+)/)[1];
 
   <div class="containerCode" id='upnifyForm-code'>
   <pre><i class ="fa fa-copy" id="copy-code-button"></i> 
-  <code class="code language-html">
+  <code class="code  ">
 &lt;script&gt;   
 window.addEventListener('message', function(e) { 
   if (e.data.upWidgeChatCallback) { 
@@ -972,7 +976,7 @@ window.addEventListener('message', function(e) {
       
 <div class="containerCode" id='upnifyFormEnhanced-code'><br>variable js: <strong>g_ECObj.email</strong>
   <pre><i class ="fa fa-copy" id="copy-code-button"></i>
-  <code class="code language-html"> 
+  <code class="code  "> 
 &lt;script&gt;   
 window.addEventListener('message', function(e) { 
   if (e.data.upWidgeChatCallback) { 
@@ -990,7 +994,7 @@ window.addEventListener('message', function(e) {
         
 <div class="containerCode" id='shopifyPurchase-code'>
   <pre><i class ="fa fa-copy" id="copy-code-button"></i>    
-  <code class="code language-html">     
+  <code class="code  ">     
 //tag global
 &lt;!--  Global site tag (gtag.js) - Google Ads: <span id ='generatedAdsId'></span> --&gt;
 &lt;script async src="https://www.googletagmanager.com/gtag/js?id=<span id ='generatedAdsId'></span>"&gt;&lt;/script&gt;
@@ -1018,7 +1022,7 @@ window.addEventListener('message', function(e) {
         
 <div class="containerCode" id='shopifyPurchaseEnhanced-code'>
   <pre><i class ="fa fa-copy" id="copy-code-button"></i>   
-  <code class="code language-html">      
+  <code class="code  ">      
 {% assign fa_send_to = '<span id ='generatedConversionLabelEnhanced'></span>'%}
 {% assign fa_include_tax_and_shipping = 'no' %}
 
@@ -1070,7 +1074,7 @@ window.addEventListener('message', function(e) {
         
 <div class="containerCode" id='setInterval-code'>
   <pre><i class ="fa fa-copy" id="copy-code-button"></i> 
-  <code class="code language-html">        
+  <code class="code  ">        
 &lt;script&gt;
     function gCheckSelector() {
     var gSelector = document.querySelector('<span id ='generatedSetIntervalSelector'></span>');
@@ -1092,7 +1096,7 @@ window.addEventListener('message', function(e) {
         
 <div class="containerCode" id='InputEnter-code'>
   <pre><i class ="fa fa-copy" id="copy-code-button"></i> 
-  <code class="code language-html">        
+  <code class="code  ">        
 &lt;script&gt;
 document.querySelector('<span id ='generatedKeyDownSelector'></span>').addEventListener("keydown", function(event) {
             if (event.key === "Enter") {
@@ -1110,7 +1114,7 @@ document.querySelector('<span id ='generatedKeyDownSelector'></span>').addEventL
    
         <div class="containerCode" id='GTMOdoo-code'><br>//En odoo hacer click en personalizar, en el editor xml html buscar el archivo Web Layout insertar codigos en &lt;head&gt; y &lt;body&gt;
   <pre><i class ="fa fa-copy" id="copy-code-button"></i>  
-  <code class="code language-html">
+  <code class="code  ">
         
 <!-- Google Tag Manager -->
 &lt;script&gt;(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -1133,7 +1137,7 @@ height="0" width="0" style="display:none;visibility:hidden"&gt;&lt;/iframe&gt;&l
         
     <div class="containerCode" id='selector-click-code'>
         <pre><i class ="fa fa-copy" id="copy-code-button"></i>
-            <code class="code language-html">
+            <code class="code  ">
 &lt;script&gt;
 document.querySelector('<span id ='generatedSelectorClick'></span>').addEventListener('click',function ()
 {
@@ -1149,7 +1153,7 @@ document.querySelector('<span id ='generatedSelectorClick'></span>').addEventLis
  
             <div class="containerCode" id='form-selector-prevenDefault-code'>
         <pre><i class ="fa fa-copy" id="copy-code-button"></i>
-            <code class="code language-html">
+            <code class="code  ">
 &lt;script&gt;
 document.querySelector('<span id ='generatedFormSelectorClick'></span>').addEventListener('click', function(event) {
 event.preventDefault(); 
@@ -1167,7 +1171,7 @@ event.preventDefault();
         
 <div class="containerCode" id='Enhancedgtag-code'>Cambiar variable email segun el codigo que uses "g_ECObj.email"
         <pre><i class ="fa fa-copy" id="copy-code-button"></i>
-            <code class="code language-html">  
+            <code class="code  ">  
 <!-- Google tag (gtag.js) -->
 &lt;script async src="https://www.googletagmanager.com/gtag/js?id=<span id ='generatedEnhancedGtagAdsId'></span>">&lt;/script&gt;  
 &lt;script&gt; 
@@ -1188,7 +1192,7 @@ gtag('event', 'conversion', {'send_to': '<span id ='generatedEnhancedAdsConversi
         
 <div class="containerCode" id='HubSpotChatMessageSent-code'>
         <pre><i class ="fa fa-copy" id="copy-code-button"></i>
-            <code class="code language-html">
+            <code class="code  ">
 &lt;script&gt;             
  window.addEventListener('message', function(e) {
  try {
@@ -1210,7 +1214,7 @@ gtag('event', 'conversion', {'send_to': '<span id ='generatedEnhancedAdsConversi
 
         <div class="containerCode" id='functionEnhancedValidation-code'>
         <pre><i class ="fa fa-copy" id="copy-code-button"></i>
-            <code class="code language-html">
+            <code class="code  ">
 Para capturar o email ou telefone, insira os códigos a seguir como uma variável do tipo JavaScript Personalizado
 <br>
 Email
@@ -1248,7 +1252,7 @@ function() {
              <button id="share-code-button" onclick="openCodeShare()">CodeShare</button>
          <div class="containerCode">
         <pre><i class ="fa fa-copy" id="copy-code-button"></i>
-            <code id ="code-editor"class="code-editor language-html" contenteditable="true" spellcheck="false">
+            <code id ="code-editor"class="language-html " contenteditable="true" spellcheck="false">
 
                 </code>
    </pre>
