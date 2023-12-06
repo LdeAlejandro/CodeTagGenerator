@@ -1,7 +1,6 @@
  
 
-        
-        //highLight Code
+       //highLight Code
 document.addEventListener('DOMContentLoaded', function() {
 
     function highlightCode() {
