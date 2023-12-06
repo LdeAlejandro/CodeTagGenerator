@@ -1,4 +1,4 @@
-        body {
+       body {
     font-family: Arial, sans-serif;
     background-color: #18122b; /* Dark background color */
     color: #fff; /* Light text color */
@@ -161,7 +161,7 @@ font-size: 16px;
 
 
 }
-   
+  
 pre {
     font-family: "Courier New", monospace;
     background-color: #272822;
@@ -235,4 +235,4 @@ pre {
 .token.function {
      color: #a6e22e; 
     
-} 
+}  
