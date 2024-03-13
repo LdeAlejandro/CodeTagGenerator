@@ -1,7 +1,6 @@
- 
-
-        //highLight Code
+     //highLight Code
 document.addEventListener('DOMContentLoaded', function() {
+
 
     function highlightCode() {
 
@@ -132,18 +131,25 @@ codeEditorElement.addEventListener('blur', function () {
 
 });
 
-       
-      
-        //code Generator  
-document.addEventListener("DOMContentLoaded", function() {
-    setTimeout(function() {
-        
 
+//code Generator  
+  document.addEventListener("DOMContentLoaded",
+  function() {
 
-  
-        // setTimeout(function() { 
-        //check localStorage
-        /** if(localStorage.getItem('firstLoad')!==null){
+    //reaload if inactive  
+    let inactivityTimer;
+    function resetInactivityTimer() {
+    clearTimeout(inactivityTimer);
+    inactivityTimer = setTimeout(() => {
+    console.log('Being AFK too much, needs reload');
+    location.reload(true);
+     }, 60 * 60 * 1000);
+    };
+    window.addEventListener('mousemove', resetInactivityTimer);
+
+    // setTimeout(function() { 
+    //check localStorage
+    /** if(localStorage.getItem('firstLoad')!==null){
              
                localStorage.removeItem('firstLoad'); 
                console.log('already precharged');
@@ -156,735 +162,595 @@ document.addEventListener("DOMContentLoaded", function() {
                console.log('recharge'); 
                location.href = location.href;
            }*/
-        //}, 100);
+    //}, 100);
+    var activatorTypeSelect = document.getElementById('activatorType');
+    //limpiar input cuando se haga click      
+    activatorTypeSelect.addEventListener('click',
+    function() {
 
-        var activatorTypeSelect = document.getElementById('activatorType');
-        //limpiar input cuando se haga click      
+      activatorTypeSelect.value = null;
 
-        activatorTypeSelect.addEventListener('click', function() {
+    });
 
-            activatorTypeSelect.value = null;
+    const generatorOptions = {
+      'link click': {
+        elements: ['#link-click-text-box'],
+        inputSelector: ['#link-click-textValue'],
+        code: '#link-click-code',
+        generatedElements: ['#generatedlinkClickUrl']
+      },
+      'id click': {
+        elements: ['#id-click-text-box'],
+        inputSelector: ['#id-click-textValue'],
+        code: '#id-click-code',
+        generatedElements: ['#generatedIdClick']
+      },
+      'class click': {
+        elements: ['#class-click-text-box'],
+        inputSelector: ['#class-click-textValue'],
+        code: '#class-click-code',
+        generatedElements: ['#generatedClassClick']
+      },
+      'attribute click': {
+        elements: ['#attribute-click-text-box'],
+        inputSelector: ['#attribute-click-textValue'],
+        code: '#attribute-click-code',
+        generatedElements: ['#generatedAttributeClick']
+      },
+      'forEach attribute click': {
+        elements: ['#forEachAttribute-attribute-click-text-box'],
+        inputSelector: ['#forEachAttribute-attribute-click-textValue'],
+        code: '#forEachAttribute-click-code',
+        generatedElements: ['#generatedAttributeForEachClick']
+      },
+      'forEach click': {
+        elements: ['#forEach-click-text-box'],
+        inputSelector: ['#forEach-click-textValue'],
+        code: '#forEach-click-code',
+        generatedElements: ['#generatedForEachClick']
+      },
+      'formulario mensagem agradecimento': {
+        elements: ['#formThnkMsg-text-box'],
+        inputSelector: ['#formThnkMsg-textValue'],
+        code: '#formThnkMsg-code',
+        generatedElements: ['#generatedformThnkMsg']
+      },
+      'formulario mensagem agradecimento melhorado': {
+        elements: ['#formThnkMsgEnhanced-text-box'],
+        inputSelector: ['#formThnkMsgEnhanced-textValue'],
+        code: '#formThnkMsgEnhanced-code',
+        generatedElements: ['#generatedformThnkMsgEnhanced'],
+        isEnhanced: true
+      },
+      'formulario click text melhorado': {
+        elements: ['#formClickTextEnhanced-text-box'],
+        inputSelector: ['#formClickTextEnhanced-textValue'],
+        code: '#formClickTextEnhanced-code',
+        generatedElements: ['#generatedformClickTextEnhanced'],
+        isEnhanced: true
+      },
+      'formulario click selector melhorado': {
+        elements: ['#formClickSelectorEnhanced-text-box'],
+        inputSelector: ['#formClickSelectorEnhanced-textValue'],
+        code: '#formClickSelectortEnhanced-code',
+        generatedElements: ['#generatedformClickSelectorEnhanced'],
+        isEnhanced: true
+      },
+      'Click ShadowRoot': {
+        elements: ['#ShadowRootSelector-text-box', '#ShadowRootButton-text-box'],
+        inputSelector: ['#ShadowRootSelector-textValue', '#ShadowRootButtonSelector-textValue'],
+        code: '#shadowRootClick-code',
+        generatedElements: ['#generatedShadowRootSelector', '#generatedShadowRootButtonSelector']
+      },
+      'Click iframe': {
+        elements: ['#iframeClickSelector-text-box', '#iframeClickButton-text-box'],
+        inputSelector: ['#iframeClickSelector-textValue','#iframeClickButtonSelector-textValue'],
+        code: '#iframeClick-code',
+        generatedElements: ['#generatediframeClickSelector', '#generatediframeClickButtonSelector']
+      },
+      'iframe mensagem agradecimento': {
+        elements: ['#iframeFormSelector-text-box', '#iframeThanksMessage-text-box'],
+        inputSelector: ['#iframeFormSelector-textValue', '#iframeThanksMessage-textValue'],
+        code: '#iframeThanksMessage-code',
+        generatedElements: [  '#generatediframeThanksSelector','#generatediframeThanksMessage']
+      },
+      'Criar data layer': {
+        code: '#create-Data-layer',
+        noNeedOfEvent: true
+      },
+      'DOMContentLoaded': {
+        code: '#DOMContentLoadedCode',
+        noNeedOfEvent: true
+      },
+      'Click link Whatsapp': {
+        code: '#whatsapp-link-click',
+        noNeedOfEvent: true
+      },
+      'Click link llamada': {
+        code: '#tel-link-click',
+        noNeedOfEvent: true
+      },
+      'Click link email': {
+        code: '#email-link-click',
+        noNeedOfEvent: true
+      },
+      'Hubspot Form': {
+        elements: '#HubSpot-text-box',
+        code: '#formHubSpot-code',
+        noNeedOfEvent: true
+      },
+      'Hubspot Form melhorado': {
+        elements: ['#HubSpotEnhanced-text-box'],
+        code: '#formHubSpotEnhanced-code',
+        isEnhanced: true
+      },
+      'Wix Chat Mensagem enviada': {
+        code: '#wixChatmessageSent-code',
+        noNeedOfEvent: true
+      },
+      'Formulario amoforms': {
+        code: '#amoformsSent-code',
+        noNeedOfEvent: true
+      },
+      'Cliengo Lead Whatsapp': {
+        code: '#cliengoLeadWhatsapp-code',
+        noNeedOfEvent: true
+      },
+      'Formulario Zoho': {
+        code: '#zohoForm-code',
+        noNeedOfEvent: true
+      },
+      'Calendly Scheduled': {
+        code: '#calendlyScheduled-code',
+        noNeedOfEvent: true
+      },
+      'Local Storage': {
+        code: '#localStorage-code',
+        noNeedOfEvent: true
+      },
+      'Prestashop Order Id Url': {
+        code: '#prestashopOrderId-code',
+        noNeedOfEvent: true
+      },
+      'Formulario Upnify Whatsapp': {
+        code: '#upnifyForm-code',
+        noNeedOfEvent: true
+      },
+      'Formulario Upnify Whatsapp melhorado': {
+        code: '#upnifyFormEnhanced-code',
+        noNeedOfEvent: true
+      },
+      'Compra Shopify': {
+        elements: ['#shopifyPurchaseAdsId-text-box'],
+        inputSelector: ['#shopifyPurchaseAdsId-textValue','#shopifyPurchaseConversionLabel-textValue', '#shopifyPurchaseCurrency-textValue'],
+        code: '#shopifyPurchase-code',
+        generatedElements: ['#generatedAdsId', '#generatedConversionLabel', '#generatedCurrency'],
+        noNeedOfEvent: true
+      },
+      'Compra Shopify melhorada': {
+        elements: ['#shopifyPurchaseEnhancedConversionLabel-text-box'],
+        inputSelector: ['#shopifyPurchaseEnhancedConversionLabel-textValue'],
+        code: '#shopifyPurchaseEnhanced-code',
+        generatedElements: ['#generatedConversionLabelEnhanced'],
+        noNeedOfEvent: true
+      },
+      'Validar Selector Intervalo': {
+        elements: ['#setIntervalSelector-text-box'],
+        inputSelector: ['#setIntervalSelector-textValue'],
+        code: '#setInterval-code',
+        generatedElements: ['#generatedSetIntervalSelector'],
+        noNeedOfEvent: true
+      },
+      'key down': {
+        elements: ['#keyDownSelector-text-box', '#keyDownSelector-textValue'],
+        inputSelector: ['#keyDownSelector-textValue'],
+        code: '#InputEnter-code',
+        generatedElements: ['#generatedKeyDownSelector']
+      },
+      'GTM Odoo': {
+        elements: ['#GTMOdooId-text-box'],
+        inputSelector: ['#GTMOdooId-textValue'],
+        code: '#GTMOdoo-code',
+        generatedElements: ['#generatedGTMOdooId'],
+        noNeedOfEvent: true
+      },
+      'Selector click': {
+        elements: ['#selector-click-text-box'],
+        inputSelector: ['#selector-click-textValue'],
+        code: '#selector-click-code',
+        generatedElements: ['#generatedSelectorClick']
+      },
+      'formulario click selector prevent Default': {
+        elements: ['#formSelectorClickPreventDefault-text-box'],
+        inputSelector: ['#formSelectorClickPreventDefault-textValue'],
+        code: '#form-selector-prevenDefault-code',
+        generatedElements: ['#generatedFormSelectorClick']
+      },
+      'gtag enhanced': {
+        elements: ['#EnhancedGtagAdsIdtext-box', '#EnhancedGtagAdsId-textValue', '#EnhancedAdsConversionLabel-textValue'],
+        inputSelector: ['#EnhancedGtagAdsId-textValue'],
+        code: '#Enhancedgtag-code',
+        generatedElements: ['#generatedEnhancedGtagAdsId', '#generatedEnhancedAdsConversionLabel'],
+        noNeedOfEvent: true
+      },
+      'HubSpot Chat Mensagem Enviada': {
+        elements: ['#HubSpotChatMessageSent-code'],
+        code: '#HubSpotChatMessageSent-code',
+        noNeedOfEvent: true
+      },
+      'CountryCode': {
+        elements: ['#inputPhoneDiv', '#countryCode'],
+        inputSelector: ['#checkBoxPhoneConversion'],
+        code: '#countryCode-value',
+        generatedElements: ['#generatedCountryCode', '#generatedCountryCodeCodeConditions']
+      },
+      'Validacao Email e Phone Function': {
+        code: '#functionEnhancedValidation-code',
+        noNeedOfEvent: true
+      },
+      'Consent Mode': {
+        elements: ['#CoMo'],
+        noNeedOfEvent: true
+      }
+    };
 
-        });
+    //default option
+    activatorTypeSelect.value = 'formulario mensagem agradecimento';
 
+    //check if needs conversion with phone number
+    function enhancedWithPhoneNumber(checkBox, Div) {
 
-        var inputEventName = document.getElementById('dataLayer-event-name');
-        var generatedEventName = document.querySelectorAll('#generatedEventName');
-        var searchInput = document.getElementById("searchInput");
+      if (checkBox.checked === true && Div.style.display !== 'block') {
+        Div.style.display = 'block'
 
-        //link click
-        var linkClickUrl = document.querySelector("#link-click-textValue");
-        var generatedlinkClickUrl = document.querySelectorAll('#generatedlinkClickUrl');
-        var linkClickTextBox = document.getElementById('link-click-text-box');
-        var linkClickCode = document.getElementById('link-click-code');
-        //click id
-        var clickIdSelector = document.getElementById('id-click-textValue');;
-        var generatedIdClick = document.querySelectorAll('#generatedIdClick');
-        var idClickTextBox = document.getElementById('id-click-text-box');
-        var idClickCode = document.getElementById('id-click-code');
-        //click class
-        var clickClassSelector = document.querySelector("#class-click-textValue");
-        var generatedClassClick = document.querySelectorAll('#generatedClassClick');
-        var classClickTextBox = document.getElementById('class-click-text-box')
-        var classClickCode = document.getElementById('class-click-code');
-        //click attribute
-        var clickAttributeSelector = document.getElementById('attribute-click-textValue');
-        var generatedAttributeClick = document.querySelectorAll('#generatedAttributeClick');
-        var attributeClickTextBox = document.getElementById('attribute-click-text-box')
-        var attributeClickCode = document.getElementById('attribute-click-code');
-        //click  forEach attribute
-        var clickForEachAttributeSelector = document.getElementById('forEachAttribute-attribute-click-textValue');
-        var generatedAttributeForEachClick = document.querySelectorAll('#generatedAttributeForEachClick');
-        var forEachAttributeClickTextBox = document.getElementById('forEachAttribute-click-text-box')
-        var forEachAttributeClickCode = document.getElementById('forEachAttribute-click-code');
-        //click  forEach 
-        var clickForEachSelector = document.getElementById('forEach-click-textValue');
-        var generatedForEachClick = document.querySelectorAll('#generatedForEachClick');
-        var forEachClickTextBox = document.getElementById('forEach-click-text-box')
-        var forEachClickCode = document.getElementById('forEach-click-code');
-        // formThnkMsg
-        var formThnkMsgSelector = document.querySelector("#formThnkMsg-textValue");
-        var generatedformThnkMsg = document.querySelectorAll('#generatedformThnkMsg');
-        var formThnkMsgTextBox = document.getElementById('formThnkMsg-text-box')
-        var formThnkMsgCode = document.getElementById('formThnkMsg-code');
-        // formThnkMsgEnhanced
-        var formThnkMsgEnhancedSelector = document.getElementById('formThnkMsgEnhanced-textValue');
-        var generatedformThnkMsgEnhanced = document.querySelectorAll('#generatedformThnkMsgEnhanced');
-        var formThnkMsgEnhancedTextBox = document.getElementById('formThnkMsgEnhanced-text-box')
-        var formThnkMsgEnhancedCode = document.getElementById('formThnkMsgEnhanced-code');
-        // formClickTextEnhanced
-        var formClickTextEnhancedSelector = document.getElementById('formClickTextEnhanced-textValue');
-        var generatedformClickTextEnhanced = document.querySelectorAll('#generatedformClickTextEnhanced');
-        var formClickTextEnhancedTextBox = document.getElementById('formClickTextEnhanced-text-box')
-        var formClickTextEnhancedCode = document.getElementById('formClickTextEnhanced-code');
-        // formClickSelectorEnhanced
-        var formClickSelectorEnhancedSelector = document.getElementById('formClickSelectorEnhanced-textValue');
-        var generatedformClickSelectorEnhanced = document.querySelectorAll('#generatedformClickSelectorEnhanced');
-        var formClickSelectorEnhancedTextBox = document.getElementById('formClickSelectorEnhanced-text-box')
-        var formClickSelectorEnhancedCode = document.getElementById('formClickSelectortEnhanced-code');
-        // ShadowRootClick
-        var ShadowRootSelector = document.querySelector("#ShadowRootSelector-textValue");
-        var ShadowRootButtonSelector = document.querySelector("#ShadowRootButtonSelector-textValue");
-        var generatedShadowRootSelector = document.querySelectorAll('#generatedShadowRootSelector');
-        var generatedShadowRootButtonSelector = document.querySelectorAll('#generatedShadowRootButtonSelector');
-        var ShadowRootSelectorTextBox = document.getElementById('ShadowRootSelector-text-box')
-        var ShadowRootButtonTextBox = document.getElementById('ShadowRootButton-text-box')
-        var shadowRootClickcode = document.getElementById('shadowRootClick-code');
-        // iframeClick
-        var iframeClickSelector = document.getElementById('iframeClickSelector-textValue');
-        var iframeClickButtonSelector = document.getElementById('iframeClickButtonSelector-textValue');
-        var generatediframeClickSelector = document.querySelectorAll('#generatediframeClickSelector');
-        var generatediframeClickButtonSelector = document.querySelectorAll('#generatediframeClickButtonSelector');
-        var iframeClickSelectorTextBox = document.getElementById('iframeClickSelector-text-box')
-        var iframeClickButtonTextBox = document.getElementById('iframeClickButton-text-box')
-        var iframeClickcode = document.getElementById('iframeClick-code');
-        // iframeThanksMessage
-        var iframeFormSelector = document.getElementById('iframeFormSelector-textValue');
-        var iframeThanksMessageSelector = document.getElementById('iframeThanksMessage-textValue');
-        var generatediframeThanksMessage = document.querySelectorAll('#generatediframeThanksMessage');
-        var generatediframeThanksSelector = document.querySelectorAll('#generatediframeThanksSelector');
-        var iframeFormSelectorTextBox = document.getElementById('iframeFormSelector-text-box')
-        var iframeThanksMessageTextBox = document.getElementById('iframeThanksMessage-text-box')
-        var iframeThanksMessageCode = document.getElementById('iframeThanksMessage-code');
-        // Crear variable capa de datos
-        var createDataLayerCode = document.getElementById('create-Data-layer');
-        // Crear DOMContentLoaded
-        var DOMContentLoadedCode = document.getElementById('DOMContentLoadedCode');
-        // Crear DOMContentLoaded
-        var ClickLinkWhatsappCode = document.getElementById('whatsapp-link-click');
-        // Click link llamada
-        var clickLinkLlamada = document.getElementById('tel-link-click');
-        // Click link email     
-        var clickLinkEmail = document.getElementById('email-link-click');
-        // hubSpot Form
-        var hubSpotForm = document.getElementById('formHubSpot-code');
-        //hubSpot Form Enhanced
-        var hubSpotFormEnhanced = document.getElementById('formHubSpotEnhanced-code');
-        // wixChatmessageSent-code
-        var wixChatMessageSent = document.getElementById('wixChatmessageSent-code');
-        //amoformsSent
-        var amoFormsSent = document.getElementById('amoformsSent-code');
-        //cliengoLeadWhatsapp-code
-        var cliengoLeadWhatsapp = document.getElementById('cliengoLeadWhatsapp-code');
-        //zohoForm-code
-        var zohoFormCode = document.getElementById('zohoForm-code');
-        //Calendly Scheduled
-        var calendlyScheduledCode = document.getElementById('calendlyScheduled-code');
-        //localStorage-code
-        var localStorageCode = document.getElementById('localStorage-code');
-        //prestashopOrderId-code
-        var prestashopOrderIdCode = document.getElementById('prestashopOrderId-code');
-        //upnifyForm-code
-        var upnifyFormCode = document.getElementById('upnifyForm-code');
-        var upnifyFormEnhancedCode = document.getElementById('upnifyFormEnhanced-code');
-        //Compra Shopify
-        var shopifyPurchaseTextBox = document.getElementById('shopifyPurchaseAdsId-text-box');
-        var inputShopifyAdsId = document.getElementById('shopifyPurchaseAdsId-textValue');
-        var inputShopifyConversionLabel = document.getElementById('shopifyPurchaseConversionLabel-textValue');
-        var inputShopifyCurrency = document.getElementById('shopifyPurchaseCurrency-textValue');
-        var shopifyPurchaseCode = document.getElementById('shopifyPurchase-code');
-        var generatedShopifyAdsId = document.querySelectorAll('#generatedAdsId');
-        var generatedShopifyConversionLabel = document.querySelectorAll('#generatedConversionLabel');
-        var generatedShopifyCurrency = document.querySelectorAll('#generatedCurrency');
-        //Compra Shopify Enhanced
-        var shopifyPurchaseEnhancedTextBox = document.getElementById('shopifyPurchaseEnhancedConversionLabel-text-box');
-        var inputShopifyConversionLabelEnhanced = document.getElementById('shopifyPurchaseEnhancedConversionLabel-textValue');
-        var shopifyPurchaseEnhancedCode = document.getElementById('shopifyPurchaseEnhanced-code');
-        var generatedShopifyConversionLabelEnhanced = document.querySelectorAll('#generatedConversionLabelEnhanced');
-        //setInterval
-        var setIntervalSelectorTextBox = document.getElementById('setIntervalSelector-text-box');
-        var setIntervalSelectorTextValue = document.getElementById('setIntervalSelector-textValue');
-        var setIntervalCode = document.getElementById('setInterval-code');
-        var generatedSetIntervalSelector = document.querySelectorAll('#generatedSetIntervalSelector');
-        //KeyDOwn
-        var keyDownSelectorTextBox = document.getElementById('keyDownSelector-text-box');
-        var keyDownSelectorTextValue = document.getElementById('keyDownSelector-textValue');
-        var keyDownCode = document.getElementById('InputEnter-code');
-        var generatedKeyDownSelector = document.querySelectorAll('#generatedKeyDownSelector');
-        //generateGTMOdoo
-        var GTMOdooTextBox = document.getElementById('GTMOdooId-text-box');
-        var GTMOdooTextValue = document.getElementById('GTMOdooId-textValue');
-        var GTMOdooCode = document.getElementById('GTMOdoo-code');
-        var generatedGTMOdooId = document.querySelectorAll('#generatedGTMOdooId');
-        //ClickSelector
-        var ClickSelectorTextBox = document.getElementById('selector-click-text-box');
-        var ClickSelectorTextValue = document.getElementById('selector-click-textValue');
-        var ClickSelectorCode = document.getElementById('selector-click-code');
-        var generatedSelectorClick = document.querySelectorAll('#generatedSelectorClick');
-        // FormClickSelectorPreventDefault
-        var formSelectorClickPreventDefaultTextBox = document.getElementById('formSelectorClickPreventDefault-text-box');
-        var formSelectorClickPreventDefaultTextValue = document.getElementById('formSelectorClickPreventDefault-textValue');
-        var formSelectorPrevenDefaultCode = document.getElementById('form-selector-prevenDefault-code');
-        var generatedFormSelectorClick = document.querySelectorAll('#generatedFormSelectorClick');
-        // ehanced gtag
-        var EnhancedGtagAdsIdTextBox = document.getElementById('EnhancedGtagAdsIdtext-box');
-        var EnhancedGtagAdsIdTextValue = document.getElementById('EnhancedGtagAdsId-textValue');
-        var EnhancedAdsConversionLabelTextValue = document.getElementById('EnhancedAdsConversionLabel-textValue');
-        var EnhancedgtagCode = document.getElementById('Enhancedgtag-code');
-        var generatedEnhancedGtagAdsId = document.querySelectorAll('#generatedEnhancedGtagAdsId');
-        var generatedEnhancedAdsConversionLabel = document.querySelectorAll('#generatedEnhancedAdsConversionLabel');
-        //HubSpotChat
-        var HubSpotChatMessageSentCode = document.getElementById('HubSpotChatMessageSent-code')
-        //CountryCode
-        var checkBoxPhoneConversionDiv = document.getElementById('inputPhoneDiv');
-        var countryCodeDiv = document.getElementById('countryCode');
-        var countryCodeCheckBox = document.getElementById('checkBoxPhoneConversion');
-        var countryCodeInputBox = document.getElementById('countryCode-value');
-        var generatedCountryCode = document.querySelectorAll('#generatedCountryCode');
-        var generatedCountryCodeCodeConditions = document.querySelectorAll('#generatedCountryCodeCodeConditions');
-        //function enhanced validation
-        var functionEnhancedValidationCode = document.getElementById('functionEnhancedValidation-code');
+      } else if (checkBox.checked === false && Div.style.display !== 'none') {
 
+        Div.style.display = 'none'
 
+      }
+    }
 
-        const generatorOptions = {
-            'formulario mensaje gracias': {
-                elements: formThnkMsgTextBox,
-                inputSelector: formThnkMsgSelector,
-                code: formThnkMsgCode,
-                generatedElements: [generatedformThnkMsg]
-            },
+    //check if needs event
+    function noNeedOfEventChecker(optionNoNeedOfEvent, inputDiv) {
 
-            'link click': {
-                elements: linkClickTextBox,
-                inputSelector: linkClickUrl,
-                code: linkClickCode,
-                generatedElements: [generatedlinkClickUrl]
-            },
+        const generateCodeBtn = document.getElementById('generateCode');
 
-            'class click': {
-                elements: classClickTextBox,
-                inputSelector: clickClassSelector,
-                code: classClickCode,
-                generatedElements: [generatedClassClick]
-            },
+      if (optionNoNeedOfEvent && optionNoNeedOfEvent === true && inputDiv.style.display !== 'none') {
+        inputDiv.style.display = 'none';
+        generateCodeBtn.style.display = 'none';
+            
+      }
 
-            'Click ShadowRoot': {
-                elements: ShadowRootSelectorTextBox,
-                inputSelector: ShadowRootSelector,
-                inputSelector2: ShadowRootButtonSelector,
-                code: shadowRootClickcode,
-                generatedElements: [generatedShadowRootSelector, generatedShadowRootButtonSelector]
-            },
+      else if (!optionNoNeedOfEvent) {
+        inputDiv.style.display = 'block';
+        generateCodeBtn.style.display = 'block';
+          
 
-            'id click': {
-                elements: idClickTextBox,
-                inputSelector: clickIdSelector,
-                code: idClickCode,
-                generatedElements: [generatedIdClick]
-            },
+      }
+    }
 
-            'attribute click': {
-                elements: attributeClickTextBox,
-                inputSelector: clickAttributeSelector,
-                code: attributeClickCode,
-                generatedElements: [generatedAttributeClick]
+    function ifIsEnhanced(selectedOptionElement) {
 
-            },
+      if (selectedOptionElement === true) {
 
+        const countryCodeCheckBox = document.querySelector('#checkBoxPhoneConversion');
+        const countryCodeDiv = document.querySelector('#countryCode');
 
-            'formulario mensaje gracias mejorado': {
-                elements: formThnkMsgEnhancedTextBox,
-                inputSelector: formThnkMsgEnhancedSelector,
-                code: formThnkMsgEnhancedCode,
-                generatedElements: [generatedformThnkMsgEnhanced],
-                isEnhanced: true
-            },
+        if (checkBoxPhoneConversionDiv.style.display === 'none' || checkBoxPhoneConversionDiv.style.display !== 'block') {
+          checkBoxPhoneConversionDiv.style.display = 'block';
+          countryCodeDiv.style.display = 'none';
 
-            'formulario click text mejorado': {
-                elements: formClickTextEnhancedTextBox,
-                inputSelector: formClickTextEnhancedSelector,
-                code: formClickTextEnhancedCode,
-                generatedElements: [generatedformClickTextEnhanced],
-                isEnhanced: true
-            },
+          //check if phone number is selected or nor
+          enhancedWithPhoneNumber(countryCodeCheckBox, countryCodeDiv);
 
-            'formulario click selector mejorado': {
-                elements: formClickSelectorEnhancedTextBox,
-                inputSelector: formClickSelectorEnhancedSelector,
-                code: formClickSelectorEnhancedCode,
-                generatedElements: [generatedformClickSelectorEnhanced],
-                isEnhanced: true
-            },
+          countryCodeCheckBox.addEventListener('change',
+          function() {
 
-            'forEach attribute click': {
-                elements: forEachAttributeClickTextBox,
-                inputSelector: clickForEachAttributeSelector,
-                code: forEachAttributeClickCode,
-                generatedElements: [generatedAttributeForEachClick]
-            },
+            enhancedWithPhoneNumber(countryCodeCheckBox, countryCodeDiv);
 
-            'forEach click': {
-                elements: forEachClickTextBox,
-                inputSelector: clickForEachSelector,
-                code: forEachClickCode,
-                generatedElements: [generatedForEachClick]
-            },
+          })
 
-            'forEach click': {
-                elements: forEachClickTextBox,
-                inputSelector: clickForEachSelector,
-                code: forEachClickCode,
-                generatedElements: [generatedForEachClick]
-            },
-
-            'click iframe': {
-                elements: iframeClickSelectorTextBox,
-                inputSelector: iframeClickSelector,
-                inputSelector2: iframeClickButtonSelector,
-                code: iframeClickcode,
-                generatedElements: [generatediframeClickSelector, generatediframeClickButtonSelector]
-            },
-
-            'iframe mensaje gracias': {
-                elements: iframeFormSelectorTextBox,
-                inputSelector: iframeFormSelector,
-                inputSelector2: iframeThanksMessageSelector,
-                code: iframeThanksMessageCode,
-                generatedElements: [generatediframeThanksMessage, generatediframeThanksSelector]
-            },
-
-            'Compra Shopify': {
-                elements: shopifyPurchaseTextBox,
-                inputSelector: inputShopifyAdsId,
-                inputSelector2: inputShopifyConversionLabel,
-                inputSelector3: inputShopifyCurrency,
-                code: shopifyPurchaseCode,
-                generatedElements: [generatedShopifyAdsId, generatedShopifyConversionLabel, generatedShopifyCurrency],
-                noNeedOfEvent: true
-            },
-
-            'Compra avanzada Shopify': {
-                elements: shopifyPurchaseEnhancedTextBox,
-                inputSelector: inputShopifyConversionLabelEnhanced,
-                code: shopifyPurchaseEnhancedCode,
-                generatedElements: [generatedShopifyConversionLabelEnhanced],
-                noNeedOfEvent: true
-            },
-
-            'create DataLayer': {
-                code: createDataLayerCode,
-                noNeedOfEvent: true
-            },
-
-            'create DOMContentLoaded': {
-                code: DOMContentLoadedCode,
-                noNeedOfEvent: true
-            },
-
-            'Click link Whatsapp': {
-                code: ClickLinkWhatsappCode,
-                noNeedOfEvent: true
-            },
-
-            'Click link llamada': {
-                code: clickLinkLlamada,
-                noNeedOfEvent: true
-            },
-
-            'Click link email': {
-                code: clickLinkEmail,
-                noNeedOfEvent: true
-            },
-
-            'Hubspot Form': {
-                code: hubSpotForm,
-                noNeedOfEvent: true
-            },
-
-            'Hubspot avanzado Form': {
-                code: hubSpotFormEnhanced,
-                isEnhanced: true
-            },
-
-            'Mensaje enviado Wix Chat': {
-                code: wixChatMessageSent,
-                noNeedOfEvent: true
-            },
-
-            'Formulario amoforms': {
-                code: amoFormsSent,
-                noNeedOfEvent: true
-            },
-
-            'Cliengo Lead Whatsapp': {
-                code: cliengoLeadWhatsapp,
-                noNeedOfEvent: true
-            },
-
-            'Formulario Zoho': {
-                code: zohoFormCode,
-                noNeedOfEvent: true
-            },
-
-            'Calendly Scheduled': {
-                code: calendlyScheduledCode,
-                noNeedOfEvent: true
-            },
-
-            'Local Storage': {
-                code: localStorageCode,
-                noNeedOfEvent: true
-            },
-
-            'Prestashop Order Id Url': {
-                code: prestashopOrderIdCode,
-                noNeedOfEvent: true
-            },
-
-            'Formulario Upnify Whatsapp': {
-                code: upnifyFormCode,
-                noNeedOfEvent: true
-            },
-
-            'Formulario Upnify Whatsapp avanzado': {
-                code: upnifyFormEnhancedCode,
-                noNeedOfEvent: true
-            },
-
-            'Validar Selector Intervalo': {
-                elements: setIntervalSelectorTextBox,
-                inputSelector: setIntervalSelectorTextValue,
-                code: setIntervalCode,
-                generatedElements: [generatedSetIntervalSelector],
-                noNeedOfEvent: true
-            },
-
-            'Enter Hit': {
-                elements: keyDownSelectorTextBox,
-                inputSelector: keyDownSelectorTextValue,
-                code: keyDownCode,
-                generatedElements: [generatedKeyDownSelector]
-            },
-
-            'GTM Odoo': {
-                elements: GTMOdooTextBox,
-                inputSelector: GTMOdooTextValue,
-                code: GTMOdooCode,
-                generatedElements: [generatedGTMOdooId],
-                noNeedOfEvent: true
-            },
-
-            'Selector click': {
-                elements: ClickSelectorTextBox,
-                inputSelector: ClickSelectorTextValue,
-                code: ClickSelectorCode,
-                generatedElements: [generatedSelectorClick]
-
-            },
-
-
-            'HubSpot Chat Mensaje Enviado': {
-
-                code: HubSpotChatMessageSentCode,
-                noNeedOfEvent: true
-
-            },
-
-            'formulario click selector prevent Default': {
-                elements: formSelectorClickPreventDefaultTextBox,
-                inputSelector: formSelectorClickPreventDefaultTextValue,
-                code: formSelectorPrevenDefaultCode,
-                generatedElements: [generatedFormSelectorClick]
-            },
-
-            'gtag enhanced': {
-                elements: EnhancedGtagAdsIdTextBox,
-                inputSelector: EnhancedGtagAdsIdTextValue,
-                inputSelector2: EnhancedAdsConversionLabelTextValue,
-                code: EnhancedgtagCode,
-                generatedElements: [generatedEnhancedGtagAdsId, generatedEnhancedAdsConversionLabel],
-                noNeedOfEvent: true
-
-            },
-
-            'Validación Email y Phone Function': {
-                code: functionEnhancedValidationCode,
-                noNeedOfEvent: true
-            },
         }
 
+      }
 
+      else if (!selectedOptionElement) {
 
-        //hide all options
-        for (const optionName in generatorOptions) {
-            var option = generatorOptions[optionName];
-            if (option.elements) {
-                option.elements.querySelectorAll('input').forEach(function(e) {
-                    e.removeAttribute("required");
-                    //e.setAttribute("hidden", "true");
-                })
+        if (checkBoxPhoneConversionDiv.style.display === 'block' | checkBoxPhoneConversionDiv.style.display !== 'none') {
+          checkBoxPhoneConversionDiv.style.display = 'none';
 
-                option.elements.style.display = 'none';
+        }
+      }
+    }
 
-            }
+    function optionsManager() {
 
-            if (option.code) {
-                option.code.style.display = 'none';
-                console.log('hidden');
-            }
-        };
+      const selected = activatorTypeSelect.value;
+      const selectedOption = generatorOptions[selected];
 
+        //codigo para rastrear con gtag,
+         var selectedOption = generatorOptions[activatorTypeSelect.value];
 
-        //opcion por defecto:
-        activatorTypeSelect.value = 'formulario mensaje gracias';
-
-        //show default options
-        generatorOptions['formulario mensaje gracias'].elements.style.display = 'block';
-        generatorOptions['formulario mensaje gracias'].code.style.display = 'block';
-        generatorOptions['formulario mensaje gracias'].elements.querySelectorAll('input').forEach(function(e) {
-            e.setAttribute("required", "true");
-        })
-
-        //hide country code section
-        checkBoxPhoneConversionDiv.style.display = 'none';
-        countryCodeDiv.style.display = 'none';
-        countryCodeInputBox.removeAttribute("required");
-
-        generatedCountryCodeCodeConditions.forEach(function(e) {
-
-            e.style.display = 'none';
-        })
-
-
-               
-  
-              
-
-        function showOption() {
-
-            var selectedOption = generatorOptions[activatorTypeSelect.value];
-
-            gtag('event', activatorTypeSelect.value.replaceAll(' ','_').trim());        
-            console.log(activatorTypeSelect.value.replaceAll(' ','_').trim());
+            gtag('event', selected.replaceAll(' ','_').trim());        
+            console.log(selected.replaceAll(' ','_').trim());
             
                 var eventData = {
-                 event: activatorTypeSelect.value.replaceAll(' ','_').trim()
+                 event: selected.replaceAll(' ','_').trim()
   
                     };
             window.parent.postMessage(eventData, '*');
+//
+        //options manager
+      for (optionName in generatorOptions) {
 
-            
-            //hide all options
-            for (const optionName in generatorOptions) {
-                var option = generatorOptions[optionName];
-                if (option.elements) {
+        var option = generatorOptions[optionName]
 
-                    option.elements.querySelectorAll('input').forEach(function(e) {
-                        e.removeAttribute("required");
-                    })
+        const selectedOptionElements = {
 
-                    option.elements.style.display = 'none';
-
-
-
-                }
-
-                if (option.code) {
-                    option.code.style.display = 'none';
-                    console.log('hidden');
-                }
-            };
-
-            countryCodeCheckBox.addEventListener('change', function() {
-                if (countryCodeCheckBox.checked) {
-                    console.log('checked');
-                    countryCodeDiv.style.display = 'block';
-                    countryCodeInputBox.setAttribute("required", "true");
-                    generatedCountryCodeCodeConditions.forEach(function(e) {
-
-                        e.style.display = 'block';
-                    })
-                } else {
-                    console.log('unchecked')
-                    countryCodeDiv.style.display = 'none';
-                    countryCodeInputBox.removeAttribute("required");
-                    generatedCountryCodeCodeConditions.forEach(function(e) {
-
-                        e.style.display = 'none';
-                    })
-                }
-            })
-
-            //show selected option
-            if (selectedOption) {
-
-                if (selectedOption.elements) {
-                    selectedOption.elements.style.display = 'block';
-                    selectedOption.elements.querySelectorAll('input').forEach(function(e) {
-                        e.setAttribute("required", "true");
-                    })
-                }
-
-                if (selectedOption.code) {
-                    selectedOption.code.style.display = 'block';
-                }
-
-                if (selectedOption.inputSelector) {
-                    document.getElementById('generateCode').style.display = 'block';
-                } else {
-                    document.getElementById('generateCode').style.display = 'none';
-                }
-
-
-
-                if (selectedOption.noNeedOfEvent === true) {
-                    inputEventName.style.display = 'none';
-
-                } else {
-                    inputEventName.style.display = 'block';
-                    document.getElementById('generateCode').style.display = 'block';
-                }
-
-                //showCountry code for enhanced
-
-                if (selectedOption.isEnhanced === true) {
-                    checkBoxPhoneConversionDiv.style.display = 'block';
-                    checkBoxPhoneConversionDiv.setAttribute("required", "true");
-                } else {
-                    checkBoxPhoneConversionDiv.style.display = 'none';
-                    checkBoxPhoneConversionDiv.removeAttribute("required");
-                }
-
-            }
-        }
-
-
-
-
-        function generateCode() {
-
-
-            var eventName = document.querySelector("#event-name-value").value;
-            activatorTypeSelect = document.getElementById('activatorType');
-
-            for (const key in generatorOptions) {
-
-                if (activatorTypeSelect.value == key) {
-
-                    var option = generatorOptions[key];
-                    option.code.style.display = 'block';
-
-                    
-                    if (option.inputSelector) {
-                        option.generatedElements[0].forEach(function(e) {
-                        e.textContent = option.inputSelector.value;
-
-                         })
-                    }
-                    
-                    if (option.inputSelector2) {
-                        console.log('inputSelector2 = ' + option.inputSelector2.value)
-                        option.generatedElements[1].forEach(function(e) {
-
-                            e.textContent = option.inputSelector2.value;
-
-
-                        })
-
-
-                    }
-
-                    if (option.inputSelector3) {
-                        console.log('inputSelector3 = ' + option.inputSelector3.value)
-                        option.generatedElements[2].forEach(function(e) {
-
-                            e.textContent = option.inputSelector3.value;
-
-
-                        })
-
-
-                    }
-
-                    if (option.isEnhanced === true) {
-                        generatedCountryCode.forEach(function(e) {
-                            e.textContent = countryCodeInputBox.value;
-
-                        })
-                    }
-
-
-                    generatedEventName.forEach(function(e) {
-                        e.textContent = eventName;
-                        
-
-                    })
-
-                }
-            }
+          'textBox': (option.elements && document.querySelectorAll(option.elements).length > 0) ? document.querySelectorAll(option.elements) : null,
+          'inputBox': (option.inputSelector && document.querySelectorAll(option.inputSelector).length > 0) ? document.querySelectorAll(option.inputSelector) : null,
+          'code': (option.code && document.querySelectorAll(option.code).length > 0) ? document.querySelectorAll(option.code) : null,
+          'isEnhanced': option.isEnhanced,
+          'noNeedOfEvent': option.noNeedOfEvent
 
         }
 
-        //envio de formulario   
-        document.getElementById("form-generate-code").addEventListener("submit", function(event) {
-            event.preventDefault(); // Prevent the default form submission
-            console.log('form enviado')
+        if (option === selectedOption) {
+          const checkBoxPhoneConversionDiv = document.querySelector('#inputPhoneDiv');
+          const inputEventName = document.querySelector('#dataLayer-event-name');
 
-        });
+          noNeedOfEventChecker(option.noNeedOfEvent, inputEventName);
 
-        //generar codigo con click en el boton
-        document.querySelector('#generateCode').addEventListener('click', function() {
+          if (selectedOptionElements.isEnhanced === true) {
 
-            generateCode();
-        });
-        //generar codigo con tab o enter
-        document.querySelectorAll('.input-group__input').forEach(function(e) {
-            e.addEventListener('keydown', function() {
-                if (event.key === 'Enter' || event.key === 'Tab') {
-                    generateCode();
+            const countryCodeCheckBox = document.querySelector('#checkBoxPhoneConversion');
+            const countryCodeDiv = document.querySelector('#countryCode');
 
-                }
-            });
-        });
-        //mostrar opciones
-        activatorTypeSelect.addEventListener('change', function() {
-            showOption();
-        });
+            if (checkBoxPhoneConversionDiv.style.display === 'none' || checkBoxPhoneConversionDiv.style.display !== 'block') {
 
-        //Cierre Gestor de opciones
+              checkBoxPhoneConversionDiv.style.display = 'block';
+              countryCodeDiv.style.display = 'none';
+              enhancedWithPhoneNumber(countryCodeCheckBox, countryCodeDiv);
 
+              countryCodeCheckBox.addEventListener('change',
+              function() {
 
+                enhancedWithPhoneNumber(countryCodeCheckBox, countryCodeDiv);
 
-        //            
+              })
 
-    }, 100);
-});
-    
+            }
 
-        //codeshare Button
-function openCodeShare() {
-    var codeShareLink = 'https://codeshare.io/new';
-    window.open(codeShareLink, '_blank');
-}
+          }
 
-        //copiar codigo
-        document.addEventListener('DOMContentLoaded', function() {
-            
-            setTimeout(function() {
-      
-        document.querySelectorAll('#copy-code-button').forEach(function(btn) {
-  btn.addEventListener('click', function() {
-    var codeElement = btn.parentNode;
-    if (codeElement) {
-      var codeText = codeElement.innerText.trim();
+          else if (!selectedOptionElements.isEnhanced) {
 
-      // Crear un elemento de codeText temporal para copiar el contenido
-      var tempTextAreaElement = document.createElement('textarea');
-      tempTextAreaElement.value = codeText;
-      document.body.appendChild(tempTextAreaElement);
+            if (checkBoxPhoneConversionDiv.style.display === 'block' | checkBoxPhoneConversionDiv.style.display !== 'none') {
+              checkBoxPhoneConversionDiv.style.display = 'none';
 
-      // Seleccionar y copiar el contenido del elemento temporal
-      tempTextAreaElement.select();
-      document.execCommand('copy');
+            }
+          }
 
-      // Eliminar el elemento temporal
-      document.body.removeChild(tempTextAreaElement);
+          else {
+            console.log('selectedOptionElements.isEnhanced error is (else)')
+          }
 
-                    }
-                 });
-            });
-          }, 100);
-       });     
+          ['textBox', 'inputBox', 'code'].forEach(function(elementType) {
+
         
 
+            const elements = selectedOptionElements[elementType];
+            if (elements && elements.length > 0) {
+
+              selectedOptionElements[elementType].forEach(function(element) {
+
+                if (element.style.display = 'none') {
+                  element.style.display = 'block';
+                  element.setAttribute("required", "true");
+
+                }
+
+              })
+            }
+
+          })
+
+        } else if (option !== selectedOption && optionName !== 'CountryCode') {
+
+          ['textBox', 'inputBox', 'code'].forEach(function(elementType) {
+
+            const elements = selectedOptionElements[elementType];
+
+            if (elements && elements.length > 0 && elements.forEach) {
+
+              selectedOptionElements[elementType].forEach(function(element) {
+
+                if (element.style.display = 'block') {
+                  element.style.display = 'none';
+                  element.removeAttribute("required");
+                }
+
+              })
+
+            }
+
+          })
+
+        }
+
+      }
+
+    }
+
+    //opcion por defecto:
+
+
+    optionsManager();
+
+
+//remove duplicate selector form array
+function removeDuplicates(array) {
+
+     //console.log(array)
+    var uniqueElements = []; // To store unique elements based on ID
+
+    // Iterate over each element in the array
+    array.forEach(function(element) {
+        if (element instanceof HTMLElement) {
+            // Check if the element's ID is not already in the array
+            if (!uniqueElements.some(item => item.id === element.id)) {
+                // If not, add the element to the array
+                uniqueElements.push(element);
+            }
+        }
+    });
+
+    // Return the array with unique elements
+    //console.log(uniqueElements)
+    return uniqueElements;
+}
+
+
+      
+      //generatecode
+
+    function generateCode() {
+      var eventName = document.querySelector("#event-name-value").value;
+      activatorTypeSelect = document.getElementById('activatorType');
+
+      for (const optionName in generatorOptions) {
+        if (activatorTypeSelect.value == optionName) {
+          var option = generatorOptions[optionName];
+
+          var selectedOptionElements = {
+            'inputBox': option.inputSelector,
+            'generatedElements': option.generatedElements,
+
+          };
+      
+
+          
+            //console.log(document.querySelector(selectedOptionElements['generatedElements']))
+            
+if(selectedOptionElements['inputBox']!== null && selectedOptionElements['inputBox']){
+
+          selectedOptionElements['inputBox'].forEach(function(element, index) {  
+ 
+              //console.log(element)
+        //console.log(selectedOptionElements['generatedElements'][index])
+          const inputElement = document.querySelector(element)
+        const generatedElement = document.querySelectorAll(selectedOptionElements['generatedElements'][index]);
+              //console.log(generatedElement.length)
+
+              if(selectedOptionElements['generatedElements'][index]!==null){
+                   generatedElement.forEach(function(e){
+
+                  e.textContent = inputElement.value
+              })
+                  }
+             
+             
+
+                 //console.log(inputElement,generatedElement)
+                 //generatedElement.textContent = inputElement.value;
+                
+                  
+                 // selectedOptionElements['generatedElements'][index].textContent = element.value;
+               // });
+           
+          });
+
+        }else{
+
+            console.log(' inputBox === null, no selectors for this one')
+            }
+        }
+
+      }
+
+      document.querySelectorAll('#generatedEventName').forEach(function(e) {
+        e.textContent = eventName;
+      })
+
+      if (option.isEnhanced && option.isEnhanced === true) {
+        const generatedCountryCode = document.querySelectorAll('#generatedCountryCode');
+        const countryCodeInputBox = document.querySelector('#countryCode-value');
+        generatedCountryCode.forEach(function(e) {
+          e.textContent = countryCodeInputBox.value;
+
+        })
+      }
+
+    }
+
+    //envio de formulario   
+    document.getElementById("form-generate-code").addEventListener("submit",
+    function(event) {
+      event.preventDefault(); // Prevent the default form submission
+      console.log('form enviado')
+
+    });
+
+    //generar codigo con click en el boton
+    document.querySelector('#generateCode').addEventListener('click',
+    function() {
+
+      generateCode();
+    });
+    //generar codigo con tab o enter
+    document.querySelectorAll('.input-group__input').forEach(function(e) {
+      e.addEventListener('keydown',
+      function() {
+        if (event.key === 'Enter' || event.key === 'Tab') {
+          generateCode();
+
+        }
+      });
+    });
+    //mostrar opciones
+    addEventListener('change',
+    function() {
+      optionsManager();
+        
+    });
+
+    //Cierre Gestor de opciones
+  });
+
+
+//codeshare Button
+  function openUrl(url) {
+    window.open(url, '_blank');
+  }
+
+//copiar codigo
+  document.addEventListener('DOMContentLoaded',
+  function() {
+
+    setTimeout(function() {
+
+      document.querySelectorAll('#copy-code-button').forEach(function(btn) {
+        btn.addEventListener('click',
+        function() {
+          var codeElement = btn.parentNode;
+          if (codeElement) {
+            var codeText = codeElement.innerText.trim();
+
+            // Crear un elemento de codeText temporal para copiar el contenido
+            var tempTextAreaElement = document.createElement('textarea');
+            tempTextAreaElement.value = codeText;
+            document.body.appendChild(tempTextAreaElement);
+
+            // Seleccionar y copiar el contenido del elemento temporal
+            tempTextAreaElement.select();
+            document.execCommand('copy');
+
+            // Eliminar el elemento temporal
+            document.body.removeChild(tempTextAreaElement);
+
+          }
+        });
+      });
+    },
+    100);
+  });
