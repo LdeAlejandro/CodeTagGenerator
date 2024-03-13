@@ -164,7 +164,7 @@ transition: transform 200ms, scale 200ms, font-weight 0.2s ease, font-size 0.2s 
 
 .input-group__input:focus + .input-group__label,
 .input-group__input:valid + .input-group__label {
-padding-inline: 20px;
+padding-inline:5px;
 transform: translate(-10px, -14px) scale(0.9);
 top: 6px;
 background-color: transparent; 
