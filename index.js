@@ -535,7 +535,7 @@ codeEditorElement.addEventListener('blur', function () {
             console.log('selectedOptionElements.isEnhanced error is (else)')
           }
 
-          ['textBox', 'inputBox', 'code'].forEach(function(elementType) {
+          ['textBox', 'code'].forEach(function(elementType) {
 
         
 
@@ -557,7 +557,7 @@ codeEditorElement.addEventListener('blur', function () {
 
         } else if (option !== selectedOption && optionName !== 'CountryCode') {
 
-          ['textBox', 'inputBox', 'code'].forEach(function(elementType) {
+          ['textBox', 'code'].forEach(function(elementType) {
 
             const elements = selectedOptionElements[elementType];
 
