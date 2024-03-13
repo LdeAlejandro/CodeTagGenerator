@@ -469,7 +469,7 @@ codeEditorElement.addEventListener('blur', function () {
       const selectedOption = generatorOptions[selected];
 
         //codigo para rastrear con gtag,
-         var selectedOption = generatorOptions[activatorTypeSelect.value];
+         /*
 
             gtag('event', selected.replaceAll(' ','_').trim());        
             console.log(selected.replaceAll(' ','_').trim());
@@ -479,7 +479,7 @@ codeEditorElement.addEventListener('blur', function () {
   
                     };
             window.parent.postMessage(eventData, '*');
-//
+//*/
         //options manager
       for (optionName in generatorOptions) {
 
