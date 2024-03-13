@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
      <title>Code Generator</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,6 +12,8 @@
     <!-- favicon -->
    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' class='h-4 w-4 text-blue-500' fill='none' viewBox='0 0 24 24' stroke='cyan'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4'%3E%3C/path%3E%3C/svg%3E" type="image/svg+xml">
    
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.25.0/themes/prism-okaidia.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.25.0?v=1"></script>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-SS6WQYXDSM"></script>
 <script>
@@ -20,14 +24,10 @@
   gtag('config', 'G-SS6WQYXDSM');
 </script>
 
-	 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.25.0/themes/prism-okaidia.min.css">
-  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.25.0"></script>
-	
-<link rel="stylesheet" type="text/css" href="https://ldealejandro.github.io/CodeTagGenerator/index.css">
- <script src="https://ldealejandro.github.io/CodeTagGenerator/index.js"></script>
 
-    
-</head>
+    <link rel="stylesheet" type="text/css" href="https://ldealejandro.github.io/CodeTagGenerator/index.css">
+ <script src="https://ldealejandro.github.io/CodeTagGenerator/index.js"></script>
+    </head>
 <body>
     
     
@@ -35,24 +35,24 @@
         <h1>Code Generator</h1>
         
        <form id = "form-generate-code">
-    <datalist required  id="activatorTypeData">
-        <optgroup label="Forms">
-        <option value="formulario mensaje gracias">formulario mensaje gracias</option>
-        <option value="formulario mensaje gracias mejorado">formulario mensaje gracias mejorado</option>
-        <option value="formulario click text mejorado">formulario click text mejorado</option>
-         <option value="formulario click selector mejorado">formulario click selector mejorado</option>
+    <datalist required  id="activatorTypeData" autocomplete="off">
+        <optgroup label="Form">
+        <option value="formulario mensagem agradecimento">formulario mensagem agradecimento</option>
+        <option value="formulario mensagem agradecimento melhorado">formulario mensagem agradecimento melhorado</option>
+        <option value="formulario click text melhorado">formulario click text melhorado</option>
+         <option value="formulario click selector melhorado">formulario click selector melhorado</option>
         <option value="formulario click selector prevent Default">formulario click selector prevent Default</option>
-        <option value="iframe mensaje gracias">iframe mensaje gracias</option>
+        <option value="iframe mensagem agradecimento">iframe mensagem agradecimento</option>
         <option value="Hubspot Form">Hubspot Form</option>
-        <option value="Hubspot avanzado Form">Hubspot avanzado Form</option>
+        <option value="Hubspot Form melhorado">Hubspot Form melhorado</option>
         <option value="Formulario amoforms">Formulario amoforms</option>
         <option value="Cliengo Lead Whatsapp">Cliengo Lead Whatsapp</option>
         <option value="Formulario Zoho">Formulario Zoho</option>
         <option value="Formulario Upnify Whatsapp">Formulario Upnify Whatsapp</option>
-        <option value="Formulario Upnify Whatsapp avanzado">Formulario Upnify Whatsapp avanzado</option>
+        <option value="Formulario Upnify Whatsapp melhorado">Formulario Upnify Whatsapp melhorado</option>
     </optgroup>
         
-    <optgroup label="Clicks">
+    <optgroup label="Click">
         <option value="Click link Whatsapp">Click link Whatsapp</option>
         <option value="Click link llamada">Click link llamada</option>
         <option value="Click link email">Click link email</option>
@@ -62,30 +62,30 @@
         <option value="class click">class click</option>
         <option value="attribute click">attribute click</option>
         <option value="forEach attribute click">forEach attribute click</option>
-        <option value="forEach click">forEach click</option>
+        <option value="forEach click">forEach click, multiple buttons</option>
         <option value="Click ShadowRoot">Click ShadowRoot</option>
-        <option value="click iframe">click iframe</option>
+        <option value="Click iframe">Click iframe</option>
     </optgroup>
         
-    <optgroup label="Chats">
-        <option value="Mensaje enviado Wix Chat">Mensaje enviado Wix Chat</option> 
+    <optgroup label="Chat">
+        <option value="Wix Chat Mensagem enviada">Wix Chat Mensagem enviada</option> 
     </optgroup>
         
-    <optgroup label="Otros">
-        <option value="create DataLayer">create DataLayer</option>    
-        <option value="create DOMContentLoaded">create DOMContentLoaded</option>  
+    <optgroup label="Outros">
+        <option value="Criar data layer">Criar data layer</option>    
+        <option value="DOMContentLoaded">DOMContentLoaded</option>  
         <option value="Calendly Scheduled">Calendly Scheduled</option>
         <option value="Local Storage">Local Storage</option>
         <option value="Prestashop Order Id Url">Prestashop Order Id Url</option>
         <option value="Compra Shopify">Compra Shopify</option>
-        <option value="Compra avanzada Shopify">Compra avanzada Shopify</option>
-        <option value="Enter Hit">KeyDown</option>
+        <option value="Compra Shopify melhorada">Compra Shopify melhorada</option>
+        <option value="key down">key down</option>
         <option value="Validar Selector Intervalo">Validar Selector Intervalo</option>
          <option value="GTM Odoo">GTM Odoo</option>
         <option value="gtag enhanced">gtag enhanced</option>
-        <option value ="HubSpot Chat Mensaje Enviado">HubSpot Chat Mensaje Enviado</option>
-        <option value ="Validación Email y Phone Function">Validación Email y Phone Function</option>
-        
+        <option value ="HubSpot Chat Mensagem Enviada">HubSpot Chat Mensagem Enviada</option>
+        <option value ="Validacao Email e Phone Function">Validacao Email e Phone Function</option>
+        <option value ="Consent Mode">Praticar Consent Mode</option>
       </optgroup>
 
     </datalist>
@@ -93,87 +93,115 @@
         
          <br>
         
-                
-        <div class="input-group" id="text-box">
+<div class="input-group" id="text-box">
         <input  required type="text" id="activatorType" class ="input-group__input activators" list = "activatorTypeData" placeholder="Procurar...">
-        <label class = 'input-group__label' for="activatorType">Activador:</label>  
+        <label class = 'input-group__label' for="activatorType">Ativador:</label>  
         </div>
         
-         <div class="link-click-text-box input-group" id="link-click-text-box">
+         <div id="link-click-text-box">
+     <button type="button" class="jello-horizontal" onclick="openUrl('https://ldealejandro.github.io/HTML-forms-and-buttons/add-to-cart%26Whatsapp.html')">¿Quer testar? ¡Clic aquí!</button>
+            <div class="input-group">
             <input class = 'input-group__input' required  type="text" id="link-click-textValue" name="textValue" placeholder = "bit.ly/ada123we21">
-            <label class = 'input-group__label' for="link-click-textValue">link click url:</label>
-            
-        </div>
+            <label class = 'input-group__label' for="link-click-textValue">link click url:</label>           
+        </div>  </div>
 
-         <div class="id-click-text-box input-group" id="id-click-text-box">
+         <div id="id-click-text-box">
+     <button type="button" class="jello-horizontal" onclick="openUrl('https://ldealejandro.github.io/HTML-forms-and-buttons/add-to-cart%26Whatsapp.html')">¿Quer testar? ¡Clic aquí!</button>
+             <div  class="input-group">
             <input class = 'input-group__input' required  type="text" id="id-click-textValue" name="textValue" placeholder = "input_17">
             <label class = 'input-group__label' for="id-click-textValue">click id selector:</label>   
-        </div>
+        </div>  </div>
+
+            <div id="HubSpot-text-box">
+     <button type="button" class="jello-horizontal" onclick="openUrl('https://ldealejandro.github.io/HTML-forms-and-buttons/add-to-cart%26Whatsapp.html')">¿Quer testar? ¡Clic aquí!</button> 
+         </div>
         
-        <div class="id-click-text-box input-group" id="selector-click-text-box">
+        <div id="selector-click-text-box">
+              <button type="button" class="jello-horizontal" onclick="openUrl('https://ldealejandro.github.io/HTML-forms-and-buttons/add-to-cart%26Whatsapp.html')">¿Quer testar? ¡Clic aquí!</button>
+            <div class=" input-group" >
             <input class = 'input-group__input' required  type="text" id="selector-click-textValue" name="textValue" placeholder = "#wpcf7-f5-p18-o1 > form > p:nth-child(6) > input">
             <label class = 'input-group__label' for="selector-click-textValue">click selector:</label>
-        </div>
+        </div></div>
       
-         <div class="class-click-text-box input-group" id="class-click-text-box">
+         <div id="class-click-text-box">
+             <button type="button" class="jello-horizontal" onclick="openUrl('https://ldealejandro.github.io/HTML-forms-and-buttons/add-to-cart%26Whatsapp.html')">¿Quer testar? ¡Clic aquí!</button>
+             <div class="input-group">
             <input class = 'input-group__input' required  type="text" id="class-click-textValue" name="textValue" placeholder = "smt-whatsapp">
             <label class = 'input-group__label' for="class-click-textValue">click class selector:</label>
-        </div>
+        </div></div>
    
- <div class="attribute-click-text-box input-group" id="attribute-click-text-box">
+   
+ <div id="attribute-click-text-box">
+       <button type="button" class="jello-horizontal" onclick="openUrl('https://ldealejandro.github.io/HTML-forms-and-buttons/add-to-cart%26Whatsapp.html')">¿Quer testar? ¡Clic aquí!</button>
+             <div class="input-group">
             <input class = 'input-group__input' required  type="text" id="attribute-click-textValue" name="textValue" placeholder = 'title="AgregarCarrito"'>
             <label class = 'input-group__label' for="attribute-click-textValue">Click Attribute:</label>
-        </div>
+        </div></div>
         
-        <div class="forEachAttribute-attribute-click-text-box input-group" id="forEachAttribute-click-text-box">
-            <input class = 'input-group__input' required  type="text" id="forEachAttribute-attribute-click-textValue" name="textValue" placeholder = 'title="AgregarCarrito"'>
-            <label class = 'input-group__label' for="forEachAttribute-attribute-click-textValue"> Eje: title="AgregarCarrito": </label>
-        </div>
+        <div id="forEachAttribute-attribute-click-text-box">
+            <button type="button" class="jello-horizontal" onclick="openUrl('https://ldealejandro.github.io/HTML-forms-and-buttons/add-to-cart%26Whatsapp.html')">¿Quer testar? ¡Clic aquí!</button>
+             <div class="input-group">
+            <input class = 'input-group__input' required  type="text" id="forEachAttribute-attribute-click-textValue" name="textValue" placeholder = 'Ex: title="Adicionar Carrinho"'>
+            <label class = 'input-group__label' for="forEachAttribute-attribute-click-textValue">Ex: title="Adicionar Carrinho": </label>
+        </div></div>
         
- <div class="forEach-click-text-box input-group" id="forEach-click-text-box">
-            <input class = 'input-group__input' required  type="text" id="forEach-click-textValue" name="textValue"  placeholder = ' Eje: .smt-whatsapp ou #add-to-cart'>
-            <label class = 'input-group__label' for="forEach-click-textValue">Selector: </label>
-        </div>
+ <div class="input-group" id="forEach-click-text-box">
+     <button type="button" class="jello-horizontal" onclick="openUrl('https://ldealejandro.github.io/HTML-forms-and-buttons/add-to-cart%26Whatsapp.html')">¿Quer testar? ¡Clic aquí!</button>
+             <div class="input-group">
+            <input class = 'input-group__input' required  type="text" id="forEach-click-textValue" name="textValue"  placeholder = ' Ex.=: .smt-whatsapp ou #add-to-cart'>
+            <label class = 'input-group__label' for="forEach-click-textValue">Seletor: </label>
+        </div></div>
 
- <div class="formThnkMsg-text-box input-group" id="formThnkMsg-text-box">
+ <div id="formThnkMsg-text-box">
+     <button type="button" class="jello-horizontal" onclick="openUrl('https://ldealejandro.github.io/HTML-forms-and-buttons/FormThankYouMessage.html')">¿Quer testar? ¡Clic aquí!</button>
+     <div class="input-group" >
      <input class = 'input-group__input' required type="text" id="formThnkMsg-textValue" name="textValue" placeholder = "Tu mensaje se ha enviado con exito!" >
       <label class = 'input-group__label' for="formThnkMsg-textValue" >Mensaje de gracias:</label>
-        </div>
+        </div> </div>
         
-        <div class="formThnkMsg-text-box input-group" id="formSelectorClickPreventDefault-text-box">
+        <div id="formSelectorClickPreventDefault-text-box">
+              <button type="button" class="jello-horizontal" onclick="openUrl('https://ldealejandro.github.io/HTML-forms-and-buttons/FormThankYouMessage.html')">¿Quer testar? ¡Clic aquí!</button>
+     <div class="input-group">
      <input class = 'input-group__input' required type="text" id="formSelectorClickPreventDefault-textValue" name="textValue" placeholder = "#wpcf7-f5-p18-o1 > form > p:nth-child(6) > input" >
       <label class = 'input-group__label' for="formSelectorClickPreventDefault-textValue" >Selector:</label>
-        </div>
+        </div></div>
         
- <div class="formThnkMsgEnhanced-text-box input-group" id="formThnkMsgEnhanced-text-box">
+ <div id="formThnkMsgEnhanced-text-box">
+      <button type="button" class="jello-horizontal" onclick="openUrl('https://ldealejandro.github.io/HTML-forms-and-buttons/FormThankYouMessage.html')">¿Quer testar? ¡Clic aquí!</button>
+     <div class="input-group">
             <input class = 'input-group__input' required  type="text" id="formThnkMsgEnhanced-textValue" name="textValue" placeholder = "Tu mensaje se ha enviado con exito!" >
-            <label class = 'input-group__label' for="formThnkMsgEnhanced-textValue">Mensaje de gracias:</label>
-        </div>
+            <label class = 'input-group__label' for="formThnkMsgEnhanced-textValue">Mensagem de agradecimento:</label>
+        </div> </div>
         
      
- <div class="formClickTextEnhanced-text-box input-group" id="formClickTextEnhanced-text-box">
+ <div id="formClickTextEnhanced-text-box">
+     <button type="button" class="jello-horizontal" onclick="openUrl('https://ldealejandro.github.io/HTML-forms-and-buttons/FormThankYouMessage.html')">¿Quer testar? ¡Clic aquí!</button>
+     <div class="input-group">
             <input class = 'input-group__input' required type="text" id="formClickTextEnhanced-textValue" name="textValue" placeholder = "Enviar">
-            <label class = 'input-group__label' for="formClickTextEnhanced-textValue">Texto del boton:</label>
-        </div>      
+            <label class = 'input-group__label' for="formClickTextEnhanced-textValue">Texto do botão:</label>
+        </div>  </div>    
     
-  <div class="formClickSelectorEnhanced-text-box input-group" id="formClickSelectorEnhanced-text-box">
+  <div id="formClickSelectorEnhanced-text-box">
+      <button type="button" class="jello-horizontal" onclick="openUrl('https://ldealejandro.github.io/HTML-forms-and-buttons/FormThankYouMessage.html')">¿Quer testar? ¡Clic aquí!</button>
+     <div class="input-group">
             <input class = 'input-group__input' required  type="text" id="formClickSelectorEnhanced-textValue" name="textValue" placeholder = ".class #id">
-            <label class = 'input-group__label' for="formClickSelectorEnhanced-textValue">Selector: </label>
-        </div>   
+            <label class = 'input-group__label' for="formClickSelectorEnhanced-textValue">Seletor: </label>
+        </div> </div>   
         
-        <div class="input-group" id="ShadowRootSelector-text-box">
-             <div>
+        <div  id="ShadowRootSelector-text-box">
+            <button type="button" class="jello-horizontal" onclick="openUrl('https://ldealejandro.github.io/HTML-forms-and-buttons/ShadowRootForm&WSP.html')">¿Quer testar? ¡Clic aquí!</button>
+             <div class="input-group">
             <input class = 'input-group__input' required  type="text" id="ShadowRootSelector-textValue" name="textValue" placeholder = ".class #id">
             <label class = 'input-group__label' for="ShadowRootSelector-textValue">Shadow Selector: </label>        
         </div>
-         
         <div  class="input-group" >
           <input class = 'input-group__input' required  type="text" id="ShadowRootButtonSelector-textValue" name="textValue" placeholder = ".class #id">
             <label class = 'input-group__label' for="ShadowRootButtonSelector-textValue">Button Selector: </label>
             </div></div>
         
-        <div class="input-group" id="iframeClickSelector-text-box">
-            <div>
+        <div id="iframeClickSelector-text-box">
+            <button type="button" class="jello-horizontal" onclick="openUrl('https://ldealejandro.github.io/HTML-forms-and-buttons/IframeFormThankYouMessage.html')">¿Quer testar? ¡Clic aquí!</button>
+            <div class="input-group">
             <input class = 'input-group__input' required  type="text" id="iframeClickSelector-textValue" name="textValue" placeholder = ".iframe #iframe">
             <label class = 'input-group__label' for="iframeClickSelector-textValue">iframe Selector: </label>
              </div>
@@ -182,14 +210,15 @@
             <label class = 'input-group__label' for="iframeClickButtonSelector-textValue">Button Selector: </label>
         </div></div>
         
-        <div class="input-group" id="iframeFormSelector-text-box">
-             <div>
+        <div id="iframeFormSelector-text-box">
+          <button type="button" class="jello-horizontal" onclick="openUrl('https://ldealejandro.github.io/HTML-forms-and-buttons/IframeFormThankYouMessage.html')">¿Quer testar? ¡Clic aquí!</button>
+            <div class="input-group">
             <input class = 'input-group__input' required  type="text" id="iframeFormSelector-textValue" name="textValue" placeholder = ".iframe #iframe" >
             <label class = 'input-group__label' for="iframeFormSelector-textValue">iframe Selector: #iframe </label>
              </div>
             <div class="input-group" id="iframeThanksMessage-text-box">
             <input class = 'input-group__input' required  type="text" id="iframeThanksMessage-textValue" name="textValue"  placeholder = "Tu mensaje se ha enviado con exito!">
-            <label class = 'input-group__label' for="iframeThanksMessage-textValue">Mensaje de gracias: </label>
+            <label class = 'input-group__label' for="iframeThanksMessage-textValue">Mensagem de agradecimento: </label>
         </div> </div>
         
       
@@ -221,12 +250,14 @@
                 
             <div class="input-group" id="keyDownSelector-text-box">
             <input class = 'input-group__input' required  type="text" id="keyDownSelector-textValue" name="textValue" placeholder = ".class #id" >
-            <label class = 'input-group__label' for="keyDownSelector-textValue">Selector de la caja de texto:</label>
+            <label class = 'input-group__label' for="keyDownSelector-textValue">Seletor da caixa de texto:</label>
               </div> 
         
             <div class="input-group" id="GTMOdooId-text-box">
             <input class = 'input-group__input' required  type="text" id="GTMOdooId-textValue" name="textValue" placeholder = "GTM-XXXXXX" >
             <label class = 'input-group__label' for="GTMOdooId-textValue">GTM:</label>
+            <button type="button" class="jello-horizontal" onclick="openUrl('https://ibb.co/jLkf4Mc')">¿Quer que muda? ¡Clic aquí!</button>
+    
               </div>
            
                 <div class="input-group" id="EnhancedGtagAdsIdtext-box">
@@ -240,37 +271,68 @@
             <label class = 'input-group__label' for="EnhancedAdsConversionLabel-textValue">Converson Label:</label>
               </div>
                     
-               </div> 
+            </div> 
+           
           <div class="input-group" id = 'inputPhoneDiv'> 
               
-         <label for = "checkBoxPhoneConversion">Conversión con telefono?:</label>
+         <label for = "checkBoxPhoneConversion">Conversão com telefono?:</label>
         <input type="checkbox" id="checkBoxPhoneConversion">
             
            <div class="country-Code-text-box input-group" id="countryCode">
             <input class = 'input-group__input' required  type="tel" id="countryCode-value" name="textValue" placeholder = "Eje: 55">
             <label class = 'input-group__label' for="countryCode-value">Codigo del País:</label>
              </div>
+
+              <div id="CoMo">
+        <button type="button" class="jello-horizontal" onclick="openUrl('https://ldealejandro.github.io/HTML-forms-and-buttons/CookieBannerGDPR.html')">Para praticar ¡Clic aquí!</button>
+        </div>
               
            </div>
-         <div class="event-name-text-box input-group" id="dataLayer-event-name">
+         <div class="input-group" id="dataLayer-event-name">
             <input class = 'input-group__input' required  type="text" id="event-name-value" name="textValue" placeholder = "Eje: form-conversion">
             <label class = 'input-group__label' for="event-name-value">Nombre de Evento:</label>
         </div>
+
        <br>
 
            
         <button type ="submit" id="generateCode">Generate Code</button>
     
 </form>
+
+        
+    <div class="containerCode" id='formThnkMsg-code'>
+        <pre><i class ="fa fa-copy" id="copy-code-button"></i>
+            <code class="code  ">
+&lt;script&gt;    
+var googleForm = '<span id ='generatedformThnkMsg'>***Exemplo: Obrigado pela mensagem!***</span>';
+        (function googleFormValidation() {
+         if (document.body && document.body.innerText.includes(googleForm)) {
+          console.log("Formulário Enviado");
+          dataLayer.push({
+            'event': '<span id ='generatedEventName'>***nome do evento***</span>'
+          })
+         } else {
+          setTimeout(googleFormValidation, 500);
+         }
+        })();
+&lt;/script&gt;
+            </code>
+        </pre>
+    </div>     
+
+
+
+        
     <div class="containerCode" id='link-click-code'>
         <pre> <i class ="fa fa-copy" id="copy-code-button"></i>   
             <code class="code  ">
 &lt;script&gt;  
 window.addEventListener('click', function (e) {
-if (e.target.closest('[href*="<span id ='generatedlinkClickUrl'></span>"]')) {
+if (e.target.closest('[href*="<span id ='generatedlinkClickUrl'>***Exemplo: telegram.com***</span>"]')) {
      console.log('<span id ='generatedlinkClickUrl'></span> has been clicked');
      dataLayer.push({
-      'event': '<span id ='generatedEventName'></span>'
+      'event': '<span id ='generatedEventName'>***nome do evento***</span>'
         })
        }
     })
@@ -283,11 +345,11 @@ if (e.target.closest('[href*="<span id ='generatedlinkClickUrl'></span>"]')) {
         <pre><i class ="fa fa-copy" id="copy-code-button"></i>
             <code class="code  ">
 &lt;script&gt;
-document.querySelector('#<span id ='generatedIdClick'></span>').addEventListener('click',function ()
+document.querySelector('#<span id ='generatedIdClick'>***Exemplo: #smt-form**</span>').addEventListener('click',function ()
 {
  console.log('<span id ='generatedEventName'></span> clicked button')
    dataLayer.push({
-                    'event': '<span id ='generatedEventName'></span>'
+                    'event': '<span id ='generatedEventName'>***nome do evento***</span>'
                   })
 })
 &lt;/script&gt;
@@ -299,11 +361,11 @@ document.querySelector('#<span id ='generatedIdClick'></span>').addEventListener
         <pre><i class ="fa fa-copy" id="copy-code-button"></i>
             <code class="code  ">
 &lt;script&gt;
-document.querySelector('.<span id ='generatedClassClick'></span>').addEventListener('click',function ()
+document.querySelector('.<span id ='generatedClassClick'>***Exemplo: .smt-whatsapp***</span>').addEventListener('click',function ()
 {
  console.log('.<span id ='generatedEventName'></span> clicked button')
    dataLayer.push({
-                    'event': '<span id ='generatedEventName'></span>'
+                    'event': '<span id ='generatedEventName'>***nome do evento***</span>'
                   })
 })
 &lt;/script&gt;
@@ -315,45 +377,26 @@ document.querySelector('.<span id ='generatedClassClick'></span>').addEventListe
         <pre><i class ="fa fa-copy" id="copy-code-button"></i>
             <code class="code  ">
 &lt;script&gt;
-document.querySelector('[<span id ='generatedAttributeClick'></span>]').addEventListener('click', function() {
+document.querySelector('[<span id ='generatedAttributeClick'>***Exemplo: name="checkout"***</span>]').addEventListener('click', function() {
     console.log('was clicked!');
     dataLayer.push({
-                    'event': '<span id ='generatedEventName'></span>'
+                    'event': '<span id ='generatedEventName'>***nome do evento***</span>'
                   })
   });
 &lt;/script&gt;
            </code>
         </pre>
     </div>
-        
-    <div class="containerCode" id='formThnkMsg-code'>
-        <pre><i class ="fa fa-copy" id="copy-code-button"></i>
-            <code class="code  ">
-&lt;script&gt;    
-var googleForm = '<span id ='generatedformThnkMsg'></span>';
-        (function googleFormValidation() {
-         if (document.body && document.body.innerText.includes(googleForm)) {
-          console.log("Formulário Enviado");
-          dataLayer.push({
-            'event': '<span id ='generatedEventName'></span>'
-          })
-         } else {
-          setTimeout(googleFormValidation, 500);
-         }
-        })();
-&lt;/script&gt;
-            </code>
-        </pre>
-    </div>           
+      
             <div class="containerCode" id='forEachAttribute-click-code'>
         <pre><i class ="fa fa-copy" id="copy-code-button"></i>
             <code class="code  ">
 &lt;script&gt;
-document.querySelectorAll('[<span id ='generatedAttributeForEachClick'></span>]').forEach(function(btn) {
+document.querySelectorAll('[<span id ='generatedAttributeForEachClick'>***Exemplo: name="add-to-cart"***</span>]').forEach(function(btn) {
   btn.addEventListener('click', function() {
     console.log('<span id ='generatedForEachAttributeClick'></span>was clicked!');
     dataLayer.push({
-                    'event': '<span id ='generatedEventName'></span>'
+                    'event': '<span id ='generatedEventName'>***nome do evento***</span>'
                   })
   });
 });
@@ -368,9 +411,9 @@ document.querySelectorAll('[<span id ='generatedAttributeForEachClick'></span>]'
 &lt;script&gt;
 document.querySelectorAll('<span id ='generatedForEachClick'></span>').forEach(function(btn) {
   btn.addEventListener('click', function() {
-    console.log('<span id ='generatedForEachClick'></span>was clicked!');
+    console.log('<span id ='generatedForEachClick'>***Exemplo: .add-to-cart***</span>was clicked!');
     dataLayer.push({
-                    'event': '<span id ='generatedEventName'></span>'
+                    'event': '<span id ='generatedEventName'>***nome do evento***</span>'
                   })
   });
 });
@@ -381,7 +424,7 @@ document.querySelectorAll('<span id ='generatedForEachClick'></span>').forEach(f
     
     <div class="containerCode" id='formThnkMsgEnhanced-code'>
         <br>
-        variable js: <strong><br>g_ECObj.email<br>g_ECObj.phone_number</strong> <pre><i class ="fa fa-copy" id="copy-code-button"></i>
+        variable js para GTM: <strong><br>g_ECObj.email<br>g_ECObj.phone_number</strong> <pre><i class ="fa fa-copy" id="copy-code-button"></i>
             <code class="code  ">
 &lt;script&gt;   
 var g_EC = { email: '[type="email"]', phone_number: '[type="tel"]' };
@@ -390,7 +433,7 @@ window.g_setupEC = Object.create(null);
 
 window.g_ECObj = Object.create(null);
 
-var g_countryCode = '<span id="generatedCountryCode"></span>';
+var g_countryCode = '<span id="generatedCountryCode">***Exemplo Codigo do pais: 55***</span>';
 
 document.addEventListener('input', g_setup_ECObj);
 
@@ -418,7 +461,7 @@ function g_save_toECObj() {
 
       var cleanedPhone = g_validatePhone(g_setupEC['g_' + i]);
 
-      var finalPhone = cleanedPhone.includes('+') ? cleanedPhone : cleanedPhone.includes(g_countryCode) ? '+' + cleanedPhone : '+' + g_countryCode + cleanedPhone;
+      var finalPhone = cleanedPhone.includes('+') ? cleanedPhone : cleanedPhone.startsWith(g_countryCode) ? '+' + cleanedPhone : '+' + g_countryCode + cleanedPhone;
 
       finalPhone.length >= 11 && finalPhone.length <= 15 ? (window.g_ECObj[i] = finalPhone) : delete window.g_ECObj[i];
 
@@ -443,10 +486,10 @@ function g_validatePhone(tel) {
 g_save_toECObj();
 
     (function googleFormValidation() {
-      if(document.body.innerText.includes('<span id ='generatedformThnkMsgEnhanced'></span>') && g_ECObj.email <span id ='generatedCountryCodeCodeConditions'>&& g_ECObj.phone_number</span>) {
+      if(document.body.innerText.includes('<span id ='generatedformThnkMsgEnhanced'>***Exemplo: Obrigado pela mensagem!***</span>') && g_ECObj.email ) {
         console.log("¡Tus datos se enviaron con éxito!");
         dataLayer.push({
-            'event' : '<span id ='generatedEventName'></span>'
+            'event' : '<span id ='generatedEventName'>***nome do evento***</span>'
         })
       }else {
         setTimeout(googleFormValidation, 500);
@@ -460,7 +503,7 @@ g_save_toECObj();
     
     <div class="containerCode" id='formClickTextEnhanced-code'>
         <br>
-        variable js: <strong><br>g_ECObj.email<br>g_ECObj.phone_number</strong><pre><i class ="fa fa-copy" id="copy-code-button"></i>
+        variable js para GTM: <strong><br>g_ECObj.email<br>g_ECObj.phone_number</strong><pre><i class ="fa fa-copy" id="copy-code-button"></i>
             <code class="code  ">
 &lt;script&gt;   
 var g_EC = { email: '[type="email"]', phone_number: '[type="tel"]' };
@@ -469,7 +512,7 @@ window.g_setupEC = Object.create(null);
 
 window.g_ECObj = Object.create(null);
 
-var g_countryCode = '<span id="generatedCountryCode"></span>';
+var g_countryCode = '<span id="generatedCountryCode">***Exemplo codigo do pais: 55***</span>';
 
 document.addEventListener('input', g_setup_ECObj);
 
@@ -497,7 +540,7 @@ function g_save_toECObj() {
 
       var cleanedPhone = g_validatePhone(g_setupEC['g_' + i]);
 
-      var finalPhone = cleanedPhone.includes('+') ? cleanedPhone : cleanedPhone.includes(g_countryCode) ? '+' + cleanedPhone : '+' + g_countryCode + cleanedPhone;
+      var finalPhone = cleanedPhone.includes('+') ? cleanedPhone : cleanedPhone.startsWith(g_countryCode) ? '+' + cleanedPhone : '+' + g_countryCode + cleanedPhone;
 
       finalPhone.length >= 11 && finalPhone.length <= 15 ? (window.g_ECObj[i] = finalPhone) : delete window.g_ECObj[i];
 
@@ -522,11 +565,11 @@ function g_validatePhone(tel) {
 g_save_toECObj();
 
     document.addEventListener('click', function (e) {
-        if (e.target.innerText == '<span id ='generatedformClickTextEnhanced'></span>' && g_ECObj.email <span id ='generatedCountryCodeCodeConditions'>&& g_ECObj.phone_number</span> ) {
+        if (e.target.innerText == '<span id ='generatedformClickTextEnhanced'>***Exemplo: Enviar***</span>' && g_ECObj.email) {
             console.log('Conversion');
 
             dataLayer.push({
-                'event': '<span id ='generatedEventName'></span>'
+                'event': '<span id ='generatedEventName'>***nome do evento***</span>'
             })
 
         }
@@ -536,7 +579,7 @@ g_save_toECObj();
         </pre>
     </div>  
 <div class="containerCode" id='formClickSelectortEnhanced-code'>
-      <br> variable js: <strong><br>g_ECObj.email<br>g_ECObj.phone_number</strong> <pre><i class ="fa fa-copy" id="copy-code-button"></i>
+      <br> variable js para GTM: <strong><br>g_ECObj.email<br>g_ECObj.phone_number</strong> <pre><i class ="fa fa-copy" id="copy-code-button"></i>
             <code class="code  ">
 &lt;script&gt;   
  var g_EC = { email: '[type="email"]', phone_number: '[type="tel"]' };
@@ -545,7 +588,7 @@ window.g_setupEC = Object.create(null);
 
 window.g_ECObj = Object.create(null);
 
-var g_countryCode = '<span id="generatedCountryCode"></span>';
+var g_countryCode = '<span id="generatedCountryCode">***Exemplo codigo do pais: 55***</span>';
 
 document.addEventListener('input', g_setup_ECObj);
 
@@ -573,7 +616,7 @@ function g_save_toECObj() {
 
       var cleanedPhone = g_validatePhone(g_setupEC['g_' + i]);
 
-      var finalPhone = cleanedPhone.includes('+') ? cleanedPhone : cleanedPhone.includes(g_countryCode) ? '+' + cleanedPhone : '+' + g_countryCode + cleanedPhone;
+      var finalPhone = cleanedPhone.includes('+') ? cleanedPhone : cleanedPhone.startsWith(g_countryCode) ? '+' + cleanedPhone : '+' + g_countryCode + cleanedPhone;
 
       finalPhone.length >= 11 && finalPhone.length <= 15 ? (window.g_ECObj[i] = finalPhone) : delete window.g_ECObj[i];
 
@@ -597,11 +640,11 @@ function g_validatePhone(tel) {
 
 g_save_toECObj();
  
-    document.querySelector('<span id ='generatedformClickSelectorEnhanced'></span>').addEventListener('click', function () {
-        if (g_ECObj.email <span id ='generatedCountryCodeCodeConditions'>&& g_ECObj.phone_number</span> ) {
+    document.querySelector('<span id ='generatedformClickSelectorEnhanced'>***Exemplo: .send-class #send-button***</span>').addEventListener('click', function () {
+        if (g_ECObj.email) {
             console.log('Conversion');
             dataLayer.push({
-                'event': '<span id ='generatedEventName'></span>'
+                'event': '<span id ='generatedEventName'>***nome do evento***</span>'
             })
         }
     })
@@ -616,18 +659,18 @@ g_save_toECObj();
             <code class="code  ">
 &lt;script&gt;   
 var g_shadowInterval = setInterval(function () {
-    var g_shadowRoot = document.querySelector('<span id ='generatedShadowRootSelector'></span>');
+    var g_shadowRoot = document.querySelector('<span id ='generatedShadowRootSelector'>***Exemplo: #shadow-root54***</span>');
 
 
     if (!g_shadowRoot) return;
     clearInterval(g_shadowInterval);
     console.log('shadow root found');
 
-g_shadowRoot.shadowRoot.querySelector('<span id ='generatedShadowRootButtonSelector'></span>').addEventListener('click', function(e)
+g_shadowRoot.shadowRoot.querySelector('<span id ='generatedShadowRootButtonSelector'>***Exemplo: #smt-whatsapp***</span>').addEventListener('click', function(e)
         {
         console.log('<span id ='generatedShadowRootButtonSelector'></span> button clicked');
          dataLayer.push({
-                    'event': '<span id ='generatedEventName'></span>'
+                    'event': '<span id ='generatedEventName'>***nome do evento***</span>'
                   })
         })
     }, 500);
@@ -642,16 +685,16 @@ g_shadowRoot.shadowRoot.querySelector('<span id ='generatedShadowRootButtonSelec
 &lt;script&gt;   
 (function iframeClickValidation()
 {   
-var gIframeSelector = document.querySelector('<span id ='generatediframeClickSelector'></span>')
+var gIframeSelector = document.querySelector('<span id ='generatediframeClickSelector'>***Exemplo: #iframe8976***</span>')
 	
  if(gIframeSelector != null)
     {
     console.log('iframe selector found');
- 	gIframeSelector.contentDocument.querySelector('<span id ='generatediframeClickButtonSelector'></span>').addEventListener('click',function ()
+ 	gIframeSelector.contentDocument.querySelector('<span id ='generatediframeClickButtonSelector'>***Exemplo: #smt-whatsapp***</span>').addEventListener('click',function ()
 	   {
  		console.log('. clicked button')
    		dataLayer.push({
-                    'event': '<span id ='generatedEventName'></span>'
+                    'event': '<span id ='generatedEventName'>***nome do evento***</span>'
       	            });
    	});
 	} 
@@ -669,13 +712,13 @@ var gIframeSelector = document.querySelector('<span id ='generatediframeClickSel
         <pre><i class ="fa fa-copy" id="copy-code-button"></i>
             <code class="code  ">
 &lt;script&gt;   
- var googleForm = '<span id ='generatediframeThanksMessage'></span>';
+ var googleForm = '<span id ='generatediframeThanksMessage'>***Exemplo: obrigado pela mensangem***</span>';
  (function googleFormValidation() {
- var frame = document.querySelector('<span id ='generatediframeThanksSelector'></span>')
+ var frame = document.querySelector('<span id ='generatediframeThanksSelector'>***iframe selector Exemplo: #iframe4978***</span>')
 
  if (frame && frame.contentDocument && frame.contentDocument.body.innerText.includes(googleForm)) {
  dataLayer.push({
- 'event': '<span id ='generatedEventName'></span>'
+ 'event': '<span id ='generatedEventName'>***nome do evento***</span>'
  });
  } else {
  setTimeout(googleFormValidation, 500);
@@ -794,13 +837,13 @@ window.g_ECObj = Object.create(null);
       {
           
             if (e.name === 'email') 
-            {  
-                acc = Object.assign(acc, { 'email': acc = e.value.match(/\S+@\S+\.\S+/) });
+            {   const gEmail = e.value.match(/\b(\S+@\S+\.\S+)\b/);
+                acc = Object.assign(acc, { 'email': acc = gEmail[0]});
             }
  
             if (e.name === 'phone')
             {
-            var g_countryCode = '<span id="generatedCountryCode"></span>';
+            var g_countryCode = '<span id="generatedCountryCode">***Codigo do pais Exemplo: 55***</span>';
       		var cleanedPhone = e.value.replace(/\D/g, '');
      		var finalPhone = cleanedPhone.slice(0, g_countryCode.length).includes(g_countryCode) ? '+' + cleanedPhone : '+' + g_countryCode + cleanedPhone;
               
@@ -814,7 +857,7 @@ window.g_ECObj = Object.create(null);
           
             return acc;
         }, {}));
-        dataLayer.push({ event: '<span id ='generatedEventName'></span>' });
+        dataLayer.push({ event: '<span id ='generatedEventName'>***nome do evento***</span>' });
     }
  } catch (x) { }
 }); 
@@ -880,6 +923,7 @@ window.addEventListener('message', function(e) {
             </code>
         </pre>
     </div>
+        
          
 <div class="containerCode" id='zohoForm-code'>
         <pre><i class ="fa fa-copy" id="copy-code-button"></i>
@@ -910,7 +954,7 @@ window.addEventListener('message', function(e) {
     window.addEventListener('message', function (m) {
       if (m.data.event.includes('event_scheduled')) {
         console.log('Scheduled appointment');
-        DataLayer.push({
+        dataLayer.push({
       'event': 'calendlyScheduled'
     });
       }
@@ -974,7 +1018,7 @@ window.addEventListener('message', function(e) {
         </pre>
     </div>  
       
-<div class="containerCode" id='upnifyFormEnhanced-code'><br>variable js: <strong>g_ECObj.email</strong>
+<div class="containerCode" id='upnifyFormEnhanced-code'><br>variable js para GTM: <strong>g_ECObj.email</strong>
   <pre><i class ="fa fa-copy" id="copy-code-button"></i>
   <code class="code  "> 
 &lt;script&gt;   
@@ -996,22 +1040,22 @@ window.addEventListener('message', function(e) {
   <pre><i class ="fa fa-copy" id="copy-code-button"></i>    
   <code class="code  ">     
 //tag global
-&lt;!--  Global site tag (gtag.js) - Google Ads: <span id ='generatedAdsId'></span> --&gt;
-&lt;script async src="https://www.googletagmanager.com/gtag/js?id=<span id ='generatedAdsId'></span>"&gt;&lt;/script&gt;
+&lt;!--  Global site tag (gtag.js) - Google Ads: <span id ='generatedAdsId'>AW-XXXXX</span> --&gt;
+&lt;script async src="https://www.googletagmanager.com/gtag/js?id=<span id ='generatedAdsId'>AW-XXXXX</span>"&gt;&lt;/script&gt;
 &lt;script&gt; 
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-  gtag('config', '<span id ='generatedAdsId'></span>');
+  gtag('config', '<span id ='generatedAdsId'>AW-XXXXX</span>');
 &lt;/script&gt; 
 
 //codigo para conversão de compra
  &lt;!-- Event snippet for Test conversion page --&gt;
   &lt;script&gt;
     gtag('event', 'conversion', {
-      'send_to': '<span id ='generatedConversionLabel'></span>',
+      'send_to': '<span id ='generatedConversionLabel'>AW-XXXXXX/XXXXX</span>',
       'value': {{ checkout.total_price | divided_by: 100.0 }},
-      'currency': '<span id ='generatedCurrency'></span>',
+      'currency': '<span id ='generatedCurrency'>***BRL***</span>',
       'transaction_id': '{{ order_number }}',
     });
   &lt;/script&gt; 
@@ -1023,7 +1067,7 @@ window.addEventListener('message', function(e) {
 <div class="containerCode" id='shopifyPurchaseEnhanced-code'>
   <pre><i class ="fa fa-copy" id="copy-code-button"></i>   
   <code class="code  ">      
-{% assign fa_send_to = '<span id ='generatedConversionLabelEnhanced'></span>'%}
+{% assign fa_send_to = '<span id ='generatedConversionLabelEnhanced'>AW-XXXXX</span>'%}
 {% assign fa_include_tax_and_shipping = 'no' %}
 
 {% comment %}DO NOT EDIT BELOW{% endcomment %}
@@ -1077,7 +1121,7 @@ window.addEventListener('message', function(e) {
   <code class="code  ">        
 &lt;script&gt;
     function gCheckSelector() {
-    var gSelector = document.querySelector('<span id ='generatedSetIntervalSelector'></span>');
+    var gSelector = document.querySelector('<span id ='generatedSetIntervalSelector'>***Exeplo: #iframe423***</span>');
     if(gSelector){
     console.log('Selector found');
     //tu codigo aqui
@@ -1098,11 +1142,11 @@ window.addEventListener('message', function(e) {
   <pre><i class ="fa fa-copy" id="copy-code-button"></i> 
   <code class="code  ">        
 &lt;script&gt;
-document.querySelector('<span id ='generatedKeyDownSelector'></span>').addEventListener("keydown", function(event) {
+document.querySelector('<span id ='generatedKeyDownSelector'>***Exemplo: #inputbox-423***</span>').addEventListener("keydown", function(event) {
             if (event.key === "Enter") {
                 console.log('Enter')
    dataLayer.push({
-                    'event': '<span id ='generatedEventName'></span>'
+                    'event': '<span id ='generatedEventName'>***nome do evento***</span>'
                   });
                 };
             });
@@ -1112,24 +1156,25 @@ document.querySelector('<span id ='generatedKeyDownSelector'></span>').addEventL
         </pre>
     </div>        
    
-        <div class="containerCode" id='GTMOdoo-code'><br>//En odoo hacer click en personalizar, en el editor xml html buscar el archivo Web Layout insertar codigos en &lt;head&gt; y &lt;body&gt;
+        <div class="containerCode" id='GTMOdoo-code'><br>No odoo clique em personalizar, no editor xml html procure o arquivo Web Layout inserir códigos em <head> e <body>
+          <br>Este código substitui o código gtm original.
   <pre><i class ="fa fa-copy" id="copy-code-button"></i>  
   <code class="code  ">
         
-<!-- Google Tag Manager -->
+    &lt;!-- Google Tag Manager head--&gt;
 &lt;script&gt;(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&amp;amp;l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','<span id ='generatedGTMOdooId'></span>');
+})(window,document,'script','dataLayer','<span id ='generatedGTMOdooId'>GTM-XXXXX</span>');
 &lt;/script&gt;
-<!-- End Google Tag Manager -->
+&lt;-- End Google Tag Manager --&gt;
 
 <br>
-<!-- Google Tag Manager (noscript) -->
-&lt;noscript&gt;&lt;iframe src="https://www.googletagmanager.com/ns.html?id=<span id ='generatedGTMOdooId'></span>"
+&lt;!-- Google Tag Manager (noscript) body--&gt;
+&lt;noscript&gt;&lt;iframe src="https://www.googletagmanager.com/ns.html?id=<span id ='generatedGTMOdooId'>GTM-XXXXX</span>"
 height="0" width="0" style="display:none;visibility:hidden"&gt;&lt;/iframe&gt;&lt;/noscript&gt;
-<!-- End Google Tag Manager (noscript) -->
+&lt;!-- End Google Tag Manager (noscript) --&gt;
 
 </code>
         </pre>
@@ -1139,11 +1184,11 @@ height="0" width="0" style="display:none;visibility:hidden"&gt;&lt;/iframe&gt;&l
         <pre><i class ="fa fa-copy" id="copy-code-button"></i>
             <code class="code  ">
 &lt;script&gt;
-document.querySelector('<span id ='generatedSelectorClick'></span>').addEventListener('click',function ()
+document.querySelector('<span id ='generatedSelectorClick'>***Exemplo: #gatsby-focus-wrapper > div >***</span>').addEventListener('click',function ()
 {
  console.log('<span id ='generatedEventName'></span> clicked button')
    dataLayer.push({
-                    'event': '<span id ='generatedEventName'></span>'
+                    'event': '<span id ='generatedEventName'>***nome do evento***</span>'
                   })
 })
 &lt;/script&gt;
@@ -1155,12 +1200,12 @@ document.querySelector('<span id ='generatedSelectorClick'></span>').addEventLis
         <pre><i class ="fa fa-copy" id="copy-code-button"></i>
             <code class="code  ">
 &lt;script&gt;
-document.querySelector('<span id ='generatedFormSelectorClick'></span>').addEventListener('click', function(event) {
+document.querySelector('<span id ='generatedFormSelectorClick'>***Exemplo: #form-673123***</span>').addEventListener('click', function(event) {
 event.preventDefault(); 
     
  console.log('formulario enviado');
   dataLayer.push({
-        'event': '<span id ='generatedEventName'></span>'
+        'event': '<span id ='generatedEventName'>***nome do evento***</span>'
     });
 
 });
@@ -1173,18 +1218,18 @@ event.preventDefault();
         <pre><i class ="fa fa-copy" id="copy-code-button"></i>
             <code class="code  ">  
 <!-- Google tag (gtag.js) -->
-&lt;script async src="https://www.googletagmanager.com/gtag/js?id=<span id ='generatedEnhancedGtagAdsId'></span>">&lt;/script&gt;  
+&lt;script async src="https://www.googletagmanager.com/gtag/js?id=<span id ='generatedEnhancedGtagAdsId'>AW-XXXXXXX</span>">&lt;/script&gt;  
 &lt;script&gt; 
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-      gtag('config', '<span id ='generatedEnhancedGtagAdsId'></span>'), {'allow_enhanced_conversions':true};
+      gtag('config', '<span id ='generatedEnhancedGtagAdsId'>AW-XXXXXX</span>'), {'allow_enhanced_conversions':true};
 &lt;/script&gt;             
             
 &lt;script&gt;        
 gtag('set', 'user_data', { email: g_ECObj.email, phone_number: g_ECObj.phone_number  });
-gtag('event', 'conversion', {'send_to': '<span id ='generatedEnhancedAdsConversionLabel'></span>'}); 
+gtag('event', 'conversion', {'send_to': '<span id ='generatedEnhancedAdsConversionLabel'>AW-XXXXX/XXXXXX</span>'}); 
 &lt;/script&gt;         
  </code>
    </pre>
