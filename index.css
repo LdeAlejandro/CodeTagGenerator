@@ -258,7 +258,7 @@ pre {
             animation: jello-horizontal 0.9s both;
     -webkit-animation-delay: 3.9s ; 
             animation-delay: 3.9s ; 
-    width: 75%;
+    width: auto;
     padding-right: 100px;
     margin-top: 5px;
     margin-bottom: 15px;
