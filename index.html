@@ -693,7 +693,7 @@ var gIframeSelector = document.querySelector('<span id ='generatediframeClickSel
  if(gIframeSelector != null)
     {
     console.log('iframe selector found');
- 	gIframeSelector.contentDocument.querySelector('<span id ='generatediframeClickButtonSelector'>***Exemplo: #smt-whatsapp***</span>').addEventListener('click',function ()
+ 	gIframeSelector.contentWindow.document.querySelector('<span id ='generatediframeClickButtonSelector'>***Exemplo: #smt-whatsapp***</span>').addEventListener('click',function ()
 	   {
  		console.log('. clicked button')
    		dataLayer.push({
