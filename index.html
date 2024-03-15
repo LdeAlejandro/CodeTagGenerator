@@ -720,6 +720,7 @@ var gIframeSelector = document.querySelector('<span id ='generatediframeClickSel
  var frame = document.querySelector('<span id ='generatediframeThanksSelector'>***iframe selector Exemplo: #iframe4978***</span>')
 
  if (frame && frame.contentDocument && frame.contentDocument.body.innerText.includes(googleForm)) {
+ console.log("Formmulario enviado");
  dataLayer.push({
  'event': '<span id ='generatedEventName'>***nome do evento***</span>'
  });
