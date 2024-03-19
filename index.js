@@ -367,8 +367,8 @@ codeEditorElement.addEventListener('blur', function () {
         generatedElements: ['#generatedFormSelectorClick']
       },
       'gtag enhanced': {
-        elements: ['#EnhancedGtagAdsIdtext-box', '#EnhancedGtagAdsId-textValue', '#EnhancedAdsConversionLabel-textValue'],
-        inputSelector: ['#EnhancedGtagAdsId-textValue'],
+        elements: ['#EnhancedGtagAdsIdtext-box'],
+        inputSelector: ['#EnhancedGtagAdsId-textValue', '#EnhancedAdsConversionLabel-textValue'],
         code: '#Enhancedgtag-code',
         generatedElements: ['#generatedEnhancedGtagAdsId', '#generatedEnhancedAdsConversionLabel'],
         noNeedOfEvent: true
