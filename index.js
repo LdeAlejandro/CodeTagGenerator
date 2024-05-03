@@ -123,9 +123,16 @@ codeEditorElement.addEventListener('blur', function () {
   Prism.highlightAll();
   
   // Update code highlighting when content changes
-  document.getElementById('code-editor').addEventListener('blur', function() {
-    Prism.highlightAll();
-  });
+
+    var codeEditor = document.getElementById('code-editor');
+if (codeEditor) {
+    codeEditor.addEventListener('blur', function() {
+        Prism.highlightAll();
+    });
+} else {
+    console.log("BookMarkVersion");
+}
+
 
 
 
