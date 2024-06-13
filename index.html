@@ -841,7 +841,7 @@ window.g_ECObj = Object.create(null);
       {
           
             if (e.name === 'email') 
-            {   const gEmail = e.value.match(/\b(\S+@\S+\.\S+)\b/);
+            {   var gEmail = e.value.match(/\b(\S+@\S+\.\S+)\b/);
                 acc = Object.assign(acc, { 'email': acc = gEmail[0]});
             }
  
