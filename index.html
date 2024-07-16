@@ -32,7 +32,7 @@
     
     
     <div class="container">
-        <h1>Code Helper</h1>
+        <h1>Code Generator</h1>
         
        <form id = "form-generate-code">
     <datalist required  id="activatorTypeData" autocomplete="off">
@@ -94,7 +94,7 @@
          <br>
         
 <div class="input-group" id="text-box">
-        <input  required type="text" id="activatorType" class ="input-group__input activators" list = "activatorTypeData">
+        <input  required type="text" id="activatorType" class ="input-group__input activators" list = "activatorTypeData" >
         <label class = 'input-group__label' for="activatorType">Ativador:</label>  
         </div>
         
@@ -113,12 +113,13 @@
         </div>  </div>
 
             <div id="HubSpot-text-box">
-     <button type="button" class="jello-horizontal" onclick="openUrl('https://share.hsforms.com/1nFYiN3hPRXiIGD9JU0QpaQqaadc')">¿Quer testar? ¡Clic aquí!</button> 
+     <button type="button" class="jello-horizontal" onclick="openUrl('https://ldealejandro.github.io/HTML-forms-and-buttons/add-to-cart%26Whatsapp.html')">¿Quer testar? ¡Clic aquí!</button> 
          </div>
-            <div id="HubSpotEnhanced-text-box">
-     <button type="button" class="jello-horizontal" onclick="openUrl('https://share.hsforms.com/1nFYiN3hPRXiIGD9JU0QpaQqaadc')">¿Quer testar? ¡Clic aquí!</button> 
+
+	       <div id="HubSpotEnhanced-text-box">
+     <button type="button" class="jello-horizontal" onclick="openUrl('https://ldealejandro.github.io/HTML-forms-and-buttons/add-to-cart%26Whatsapp.html')">¿Quer testar? ¡Clic aquí!</button> 
          </div>
-	       
+        
         <div id="selector-click-text-box">
               <button type="button" class="jello-horizontal" onclick="openUrl('https://ldealejandro.github.io/HTML-forms-and-buttons/add-to-cart%26Whatsapp.html')">¿Quer testar? ¡Clic aquí!</button>
             <div class=" input-group" >
@@ -158,7 +159,7 @@
  <div id="formThnkMsg-text-box">
      <button type="button" class="jello-horizontal" onclick="openUrl('https://ldealejandro.github.io/HTML-forms-and-buttons/FormThankYouMessage.html')">¿Quer testar? ¡Clic aquí!</button>
      <div class="input-group" >
-     <input class = 'input-group__input' required type="text" id="formThnkMsg-textValue" name="textValue" placeholder = "Sua mensagem foi enviada com sucesso!" >
+     <input class = 'input-group__input' required type="text" id="formThnkMsg-textValue" name="textValue" placeholder = "Tu mensaje se ha enviado con exito!" >
       <label class = 'input-group__label' for="formThnkMsg-textValue" >Mensagem de agradecimento:</label>
         </div> </div>
         
@@ -276,24 +277,22 @@
                     
             </div> 
            
-          <div class="input-group" id = 'inputPhoneDiv'> 
-              
+          <div class="input-group" id = 'inputPhoneDiv'>    
          <label for = "checkBoxPhoneConversion">Conversão com telefono?:</label>
         <input type="checkbox" id="checkBoxPhoneConversion">
-            
            <div class="country-Code-text-box input-group" id="countryCode">
-            <input class = 'input-group__input' required  type="tel" id="countryCode-value" name="textValue" placeholder = "Exemplo: 55">
-            <label class = 'input-group__label' for="countryCode-value">Codigo do País:</label>
+            <input class = 'input-group__input' required  type="tel" id="countryCode-value" name="textValue" placeholder = "Eje: 55">
+            <label class = 'input-group__label' for="countryCode-value">Codigo del País:</label>
              </div>            
            </div>
 
-	                       <div id="CoMo">
+	                 <div id="CoMo">
         <button type="button" class="jello-horizontal" onclick="openUrl('https://ldealejandro.github.io/HTML-forms-and-buttons/CookieBannerGDPR.html')">Para praticar ¡Clic aquí!</button>
         </div>
 	       
          <div class="input-group" id="dataLayer-event-name">
-            <input class = 'input-group__input' required  type="text" id="event-name-value" name="textValue" placeholder = "Exemplo: form-conversion">
-            <label class = 'input-group__label' for="event-name-value">Nome do evento:</label>
+            <input class = 'input-group__input' required  type="text" id="event-name-value" name="textValue" placeholder = "Eje: form-conversion">
+            <label class = 'input-group__label' for="event-name-value">Nombre de Evento:</label>
         </div>
 
        <br>
@@ -683,8 +682,12 @@ g_shadowRoot.shadowRoot.querySelector('<span id ='generatedShadowRootButtonSelec
     </div>         
                 
 <div class="containerCode" id='iframeClick-code'>
+		Validar primeiro se este código pode ser usado!!! Coloca o seguinte no console com o seletor do iframe:
+		"document.querySelector('<span id ='generatediframeClickSelector'>').contentWindow.document
+		Se devolve "Blocked a frame with origin "..." from accesing a cross origin frame." este codigo não funcionará, deve-se procurar alternativas.
+           
         <pre><i class ="fa fa-copy" id="copy-code-button"></i>
-            <code class="code  ">
+	 <code class="code  ">
 &lt;script&gt;   
 (function iframeClickValidation()
 {   
@@ -693,7 +696,7 @@ var gIframeSelector = document.querySelector('<span id ='generatediframeClickSel
  if(gIframeSelector != null)
     {
     console.log('iframe selector found');
- 	gIframeSelector.contentWindow.document.querySelector('<span id ='generatediframeClickButtonSelector'>***Exemplo: #smt-whatsapp***</span>').addEventListener('click',function ()
+ 	gIframeSelector.contentDocument.querySelector('<span id ='generatediframeClickButtonSelector'>***Exemplo: #smt-whatsapp***</span>').addEventListener('click',function ()
 	   {
  		console.log('. clicked button')
    		dataLayer.push({
@@ -712,6 +715,10 @@ var gIframeSelector = document.querySelector('<span id ='generatediframeClickSel
     </div> 
         
              <div class="containerCode" id='iframeThanksMessage-code'>
+		     	Validar primeiro se este código pode ser usado!!! Coloca o seguinte no console com o seletor do iframe:
+		"document.querySelector('<span id ='generatediframeClickSelector'>').contentWindow.document
+		Se devolve "Blocked a frame with origin "..." from accesing a cross origin frame." este codigo não funcionará, deve-se procurar alternativas.
+           
         <pre><i class ="fa fa-copy" id="copy-code-button"></i>
             <code class="code  ">
 &lt;script&gt;   
@@ -720,7 +727,6 @@ var gIframeSelector = document.querySelector('<span id ='generatediframeClickSel
  var frame = document.querySelector('<span id ='generatediframeThanksSelector'>***iframe selector Exemplo: #iframe4978***</span>')
 
  if (frame && frame.contentDocument && frame.contentDocument.body.innerText.includes(googleForm)) {
- console.log("Formmulario enviado");
  dataLayer.push({
  'event': '<span id ='generatedEventName'>***nome do evento***</span>'
  });
@@ -824,7 +830,7 @@ try
         
         
        <div class="containerCode" id='formHubSpotEnhanced-code'>
-           variables js para GTM: <br><strong>g_ECObj.email</strong><br><strong>g_ECObj.phone_number</strong>
+           variables js: <br><strong>g_ECObj.email</strong><br><strong>g_ECObj.phone_number</strong>
         <pre> <i class ="fa fa-copy" id="copy-code-button"></i> 
             <code class="code  ">         
 
@@ -968,7 +974,7 @@ window.addEventListener('message', function(e) {
         </pre>
     </div> 
         
-<div class="containerCode" id='localStorage-code'>codigo de Exemplo:
+<div class="containerCode" id='localStorage-code'>codigo de Ejemplo:
         <pre> <i class ="fa fa-copy" id="copy-code-button"></i>  
             <code class="code  ">       
 //variable con informacion que desea guardar.
@@ -1293,12 +1299,12 @@ function() {
     </div>  
         
  
-<p style = "font-size: 10px; font-family: Arial, sans-serif;"><b>by @glalejandro updated 13/06/2024 </b><p/>
+<p style = "font-size: 10px; font-family: Arial, sans-serif;"><b>by @glalejandro updated 16/07/2024 </b><p/>
         </div>
 
      <div class="container">
          <p style = "font-size: 16px; font-family: Arial, sans-serif;"><b>Organize seu código aqui: </b><p/>
-             <button id="share-code-button" onclick="openUrl('https://codeshare.io/new')">CodeShare</button>
+             <button id="share-code-button" onclick="openCodeShare()">CodeShare</button>
          <div class="containerCode">
         <pre><i class ="fa fa-copy" id="copy-code-button"></i>
             <code id ="code-editor"class="language-html " contenteditable="true" spellcheck="false">
